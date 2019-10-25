@@ -9,7 +9,7 @@ create table Customer
     address     varchar(200),
     city        varchar(20),
     state       varchar(50),
-    postcode    integer,
+    postcode    varchar(20),
     country     varchar(50),
     UID         varchar(50),
     pass        varchar(50),
