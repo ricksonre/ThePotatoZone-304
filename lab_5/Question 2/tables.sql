@@ -1,24 +1,21 @@
 create table Customer
 (
     cid         integer auto_increment,
-    pr         integer auto_increment,
-    firstName   varchar(50),
-    lastName    varchar(50), 
+
+    firstName   varchar(50) not null,
+    lastName    varchar(50) not null, 
     email       varchar(50),
     phoneNo     integer,
     address     varchar(200),
-    city        varchar(20),
+    city        varchar(50),
     state       varchar(50),
-    postcode    varchar(20),
+    postcode    varchar(50),
     country     varchar(50),
-    UID         varchar(50),
-    pass        varchar(50),
+	
+    UID         varchar(50) not null unique,
+    pass        varchar(50) not null,
 
-    pid         integer,
-
-    primary key(cid),
-    foreign key(pid) 
-        references PaymentMethod(pid)
+    primary key(cid)
 );
 
 create domain renrange as integer
@@ -38,10 +35,12 @@ create table Review
     primary key(rid),
     foreign key(cid)
         references Customer(cid)
-        on delete cascade,
-    foreign key(prid) 
-        references Customer(prid)
         on delete cascade
+		on update cascade,
+    foreign key(prid) 
+        references Product(prid)
+        on delete cascade
+		on update cascade
 );
 
 create table OrderSummary
@@ -49,7 +48,7 @@ create table OrderSummary
     oid             integer auto_increment,
     orderDate       date,
     total           decimal(100,2),
-    shipAdd         varchar(50), 
+    shipAdd         varchar(100), 
     city            varchar(50), 
     state           varchar(50), 
     country         varchar(50), 
@@ -60,14 +59,13 @@ create table OrderSummary
     primary key(oid),
     foreign key(cid)
         references Customer(cid)
-        on delete cascade
+		on delete cascade
+		on update cascade,
     foreign key(prid) 
         references Customer(prid)
         on delete cascade
+		on update cascade
 );
-
-//////////////////////////////////////////////
-
 
 create domain payMethod as char(10)
     default null
@@ -85,6 +83,7 @@ create table PaymentMethod
     primary key (pid),
     foreign key (cid) references Customer(cid)
         on delete cascade
+		on update cascade
 
 );
 
@@ -121,7 +120,7 @@ create table ShoppingCart
         on update cascade,
     foreign key (prid) references Product (prid)
         on delete cascade
-        on update cascade,
+        on update cascade
 );
 
 create table Product
@@ -137,6 +136,8 @@ create table Product
 
     primary key (prid),
     foreign key (catid) references Category(catid)
+		on update cascade
+		on delete set null
 );
 
 create table Category(
@@ -144,4 +145,20 @@ create table Category(
     cname       varchar(50),
 
     primary key (catid)
+);
+
+create table ProductOrder
+(
+	quantity 	integer,
+	price		decimal(100,2),
+	
+	oid 		integer,
+	prid		integer,
+	
+	foreign key (oid) references OrderSummary (cid)
+        on delete cascade
+        on update cascade,
+    foreign key (prid) references Product (prid)
+        on delete set null
+        on update cascade
 );
