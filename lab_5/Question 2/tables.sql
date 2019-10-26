@@ -47,7 +47,7 @@ create table OrderSummary
 (
     oid             integer auto_increment,
     orderDate       date,
-    total           decimal(100,2),
+    total           decimal(65,2),
     shipAdd         varchar(100), 
     city            varchar(50), 
     state           varchar(50), 
@@ -110,7 +110,7 @@ create table Warehouse
 create table ShoppingCart
 (
     pramt       integer,
-    prprice     decimal(100,2),
+    prprice     decimal(65,2),
 
     cid         integer,
     prid        integer,
@@ -127,7 +127,7 @@ create table Product
 (
     prid        integer auto_increment,
     name        varchar(50),
-    price       decimal(100,2),
+    price       decimal(65,2),
     image       varchar(150),
     image2      blob,
     desc        varchar(500),
@@ -150,7 +150,7 @@ create table Category(
 create table ProductOrder
 (
 	quantity 	integer,
-	price		decimal(100,2),
+	price		decimal(65,2),
 	
 	oid 		integer,
 	prid		integer,
