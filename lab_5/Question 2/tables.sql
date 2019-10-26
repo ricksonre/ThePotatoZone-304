@@ -53,7 +53,7 @@ create table OrderSummary
     city            varchar(50), 
     state           varchar(50), 
     country         varchar(50), 
-    postcode        integer,
+    postcode        varchar(20),
 
 
 
