@@ -251,8 +251,8 @@ public class OrderJDBC
         // TODO: Use a PreparedStatement for this INSERT. 
     	System.out.println("Adding Customer");
         String query = "INSERT INTO Customer VALUES ( '"+customerId+"', '"+customerName+"' );";
-        Statement stat = con.createStatement();        
-        int set = stat.executeUpdate(query); 	
+        PreparedStatement stat = con.prepareStatement(query);
+        stat.execute(); 	
        
     	
     }
@@ -267,8 +267,8 @@ public class OrderJDBC
         // TODO: Use a PreparedStatement for this DELETE.
     	System.out.println("Deleting Customer");
         String query = "DELETE FROM Customer WHERE CustomerId = '"+customerId+"'";
-        Statement stat = con.createStatement();        
-        int set = stat.executeUpdate(query); 
+        PreparedStatement stat = con.prepareStatement(query);
+        stat.execute();  
     }
     
     /**
@@ -281,8 +281,8 @@ public class OrderJDBC
         // TODO: Use a PreparedStatement for this UPDATE.
     	System.out.println("Updating Customer");
         String query = "UPDATE Customer SET CustomerName = '"+customerName+"' WHERE CustomerId = '"+customerId+"'";
-        Statement stat = con.createStatement();        
-        int set = stat.executeUpdate(query); 
+        PreparedStatement stat = con.prepareStatement(query);
+        stat.execute(); 
     }
     
     /**
@@ -296,8 +296,8 @@ public class OrderJDBC
         // TODO: Use a PreparedStatement for this INSERT.   
     	System.out.println("Adding Order");
         String query = "INSERT INTO Orders VALUES ( '"+orderId+"', '"+orderDate+"', '"+customerId+"', '"+employeeId+"', null );";
-        Statement stat = con.createStatement();        
-        int set = stat.executeUpdate(query); 	
+        PreparedStatement stat = con.prepareStatement(query);
+        stat.execute();  	
     }
     
     /**
@@ -322,7 +322,10 @@ public class OrderJDBC
      */    
     public void updateOrderTotal(String orderId, BigDecimal total) throws SQLException
     {               
-        // TODO: Use a PreparedStatement for this UPDATE.        
+        // TODO: Use a PreparedStatement for this UPDATE.
+    	//String query = "insert into OrderedProduct values ( '"+ orderId +"', '"+ productId +"', '"+quantity+"', '"+price+"' )";
+        //PreparedStatement stat = con.prepareStatement(query);
+        //stat.execute();
     }	
     
     
