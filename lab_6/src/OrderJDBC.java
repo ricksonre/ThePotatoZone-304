@@ -223,12 +223,8 @@ public class OrderJDBC
     {
         // TODO: Use a PreparedStatement for this INSERT. 
     	System.out.println("Adding Customer");
-        
-       
-        // TODO: Traverse ResultSet and use StringBuilder.append() to add columns/rows to output string
         String query = "INSERT INTO Customer VALUES ( '"+customerId+"', '"+customerName+"' );";
-        Statement stat = con.createStatement();
-        
+        Statement stat = con.createStatement();        
         int set = stat.executeUpdate(query); 	
        
     	
@@ -242,6 +238,10 @@ public class OrderJDBC
     public void deleteCustomer(String customerId) throws SQLException
     {
         // TODO: Use a PreparedStatement for this DELETE.
+    	System.out.println("Adding Customer");
+        String query = "DELETE FROM Customer WHERE CustomerId = '"+customerId+"'";
+        Statement stat = con.createStatement();        
+        int set = stat.executeUpdate(query); 
     }
     
     /**
