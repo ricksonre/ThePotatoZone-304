@@ -221,7 +221,17 @@ public class OrderJDBC
      */
     public void addCustomer(String customerId, String customerName) throws SQLException
     {
-        // TODO: Use a PreparedStatement for this INSERT.        
+        // TODO: Use a PreparedStatement for this INSERT. 
+    	System.out.println("Adding Customer");
+        
+       
+        // TODO: Traverse ResultSet and use StringBuilder.append() to add columns/rows to output string
+        String query = "INSERT INTO Customer VALUES ( '"+customerId+"', '"+customerName+"' );";
+        Statement stat = con.createStatement();
+        
+        int set = stat.executeUpdate(query); 	
+       
+    	
     }
     
     /**
