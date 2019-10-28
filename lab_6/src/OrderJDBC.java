@@ -79,9 +79,9 @@ public class OrderJDBC
 	public Connection connect() throws SQLException
 	{
 	    // TODO: Fill in your connection information
-		String uid = "<your user id>";
+		String uid = "rreichma";
 		String url = "jdbc:mysql://cosc304.ok.ubc.ca/db_"+uid; 		
-		String pw = "<your password>";
+		String pw = "69750420";
 	    
 		System.out.println("Connecting to database.");
 		// Note: Must assign connection to instance variable as well as returning it back to the caller
@@ -153,6 +153,17 @@ public class OrderJDBC
         StringBuilder output = new StringBuilder();
        
         // TODO: Traverse ResultSet and use StringBuilder.append() to add columns/rows to output string
+        String query = "Select * from Customer";
+        Statement stat = con.createStatement();
+        
+        ResultSet set = stat.executeQuery(query); 	
+        ResultSetMetaData meta = set.getMetaData();
+        
+        output.append(meta.getColumnName(1) + ", " + meta.getColumnName(2));
+        while(set.next())
+        {
+        	output.append('\n' + set.getString(1) + ", " + set.getString(2));
+        }
         
         return output.toString();
     }
@@ -172,6 +183,8 @@ public class OrderJDBC
     public String listCustomerOrders(String customerId) throws SQLException
     {
         // TODO: Similar to listAllCustomers(), execute query and store results in a StringBuilder, then output as a String
+    	
+    	
         return "";
     }
     
