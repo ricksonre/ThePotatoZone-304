@@ -266,7 +266,11 @@ public class OrderJDBC
      */    
     public void newOrder(String orderId, String customerId, String orderDate, String employeeId) throws SQLException
     {
-        // TODO: Use a PreparedStatement for this INSERT.                        
+        // TODO: Use a PreparedStatement for this INSERT.   
+    	System.out.println("Adding Order");
+        String query = "INSERT INTO Orders VALUES ( '"+orderId+"', '"+orderDate+"', '"+customerId+"', '"+employeeId+"', null );";
+        Statement stat = con.createStatement();        
+        int set = stat.executeUpdate(query); 	
     }
     
     /**
