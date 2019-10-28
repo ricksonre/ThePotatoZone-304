@@ -323,9 +323,9 @@ public class OrderJDBC
     public void updateOrderTotal(String orderId, BigDecimal total) throws SQLException
     {               
         // TODO: Use a PreparedStatement for this UPDATE.
-    	//String query = "insert into OrderedProduct values ( '"+ orderId +"', '"+ productId +"', '"+quantity+"', '"+price+"' )";
-        //PreparedStatement stat = con.prepareStatement(query);
-        //stat.execute();
+    	String query = "";
+        PreparedStatement stat = con.prepareStatement(query);
+        stat.execute();
     }	
     
     
