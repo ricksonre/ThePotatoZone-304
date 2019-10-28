@@ -308,7 +308,10 @@ public class OrderJDBC
      */    
     public void newLineItem(String orderId, String productId, int quantity, String price) throws SQLException
     {               
-        // TODO: Use a PreparedStatement for this INSERT.        
+        // TODO: Use a PreparedStatement for this INSERT. 
+    	String query = "insert into OrderedProduct values ( '"+ orderId +"', '"+ productId +"', '"+quantity+"', '"+price+"' )";
+        PreparedStatement stat = con.prepareStatement(query);
+        stat.execute(); 	
     }
     
     /**
