@@ -222,7 +222,7 @@ public class TestOrderJDBC
         
         answer = "Total columns: 1"
                 +"\norderTotal"
-                +"\n24.95"
+                +"\n14.95"
                 +"\nTotal results: 1";     
         
         queryResult = OrderJDBC.resultSetToString(rst, 100);

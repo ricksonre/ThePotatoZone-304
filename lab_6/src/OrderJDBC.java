@@ -235,7 +235,11 @@ public class OrderJDBC
     public ResultSet computeOrderTotal(String orderId) throws SQLException
     {
         // TODO: Use a PreparedStatement for this query.  Return the ResultSet.
-        return null;
+    	String query = "select sum(Total) as orderTotal from Orders where OrderId = \'" + orderId + "\' group by OrderId;";
+        PreparedStatement stat = con.prepareStatement(query);
+        ResultSet set = stat.executeQuery(); 	
+        
+        return set; 
     }
     
     /**
