@@ -18,6 +18,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
+import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
+
 
 /**
  * An application for querying and updating an order database.
@@ -184,24 +186,27 @@ public class OrderJDBC
     {
         // TODO: Similar to listAllCustomers(), execute query and store results in a StringBuilder, then output as a String
     	StringBuilder output = new StringBuilder();
-    	String query = "Select OrderId, OrderDate, Customer.CustomerId, EmployeeId, Total from Customer left join Orders on Customer.CustomerId = Orders.CustomerId where Customer.CustomerId = " + customerId;
+    	String query = "Select OrderId, OrderDate, Customer.CustomerId, EmployeeId, Total from Customer left join Orders on Customer.CustomerId = Orders.CustomerId where Customer.CustomerId = \'" + customerId + "\'";
         Statement stat = con.createStatement();
         
+        
+       
         ResultSet set = stat.executeQuery(query); 	
         ResultSetMetaData meta = set.getMetaData();
         
         output.append(meta.getColumnName(1) + ", " + meta.getColumnName(2) + ", " + meta.getColumnName(3) + ", " + meta.getColumnName(4) + ", " + meta.getColumnName(5));
         while(set.next())
         {
-        	output.append('\n' + set.getString(1) + ", " + set.getDate(2) +
-        			", " + set.getString(3) + ", " + set.getString(4)+
-        			", " + String.format("%.2f", set.getDouble(5)));
-        	
+        output.append('\n' + set.getString(1) + ", " + set.getDate(2) +
+            ", " + set.getString(3) + ", " + set.getString(4)+
+            ", " + String.format("%.2f", set.getDouble(5)));
+            	
         }
-    	
+        
         return output.toString();
+        
     }
-    //String.format("%.2f",
+    
     /**
      * Returns a ResultSet with all line items for a given order id.
      * You must use a PreparedStatement.
