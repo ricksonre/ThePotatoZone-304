@@ -157,6 +157,13 @@ public class OrderJDBC
         Statement stat = con.createStatement();
         
         ResultSet set = stat.executeQuery(query); 	
+        ResultSetMetaData meta = set.getMetaData();
+        
+        output.append(meta.getColumnName(1) + ", " + meta.getColumnName(2));
+        while(set.next())
+        {
+        	output.append('\n' + set.getString(1) + ", " + set.getString(2));
+        }
         
         return output.toString();
     }
