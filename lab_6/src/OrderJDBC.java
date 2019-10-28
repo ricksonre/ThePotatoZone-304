@@ -238,7 +238,7 @@ public class OrderJDBC
     public void deleteCustomer(String customerId) throws SQLException
     {
         // TODO: Use a PreparedStatement for this DELETE.
-    	System.out.println("Adding Customer");
+    	System.out.println("Deleting Customer");
         String query = "DELETE FROM Customer WHERE CustomerId = '"+customerId+"'";
         Statement stat = con.createStatement();        
         int set = stat.executeUpdate(query); 
@@ -251,7 +251,11 @@ public class OrderJDBC
      */
     public void updateCustomer(String customerId, String customerName) throws SQLException
     {
-        // TODO: Use a PreparedStatement for this UPDATE.        
+        // TODO: Use a PreparedStatement for this UPDATE.
+    	System.out.println("Updating Customer");
+        String query = "UPDATE Customer SET CustomerName = '"+customerName+"' WHERE CustomerId = '"+customerId+"'";
+        Statement stat = con.createStatement();        
+        int set = stat.executeUpdate(query); 
     }
     
     /**
