@@ -217,7 +217,11 @@ public class OrderJDBC
     public ResultSet listLineItemsForOrder(String orderId) throws SQLException
     {
         // TODO: Use a PreparedStatement for this query.  Return the ResultSet.
-        return null; 
+    	String query = "select OrderId, ProductId, Quantity, Price from OrderedProduct where OrderId = \'" + orderId + "\'";
+        PreparedStatement stat = con.prepareStatement(query);
+        ResultSet set = stat.executeQuery(); 	
+        
+        return set; 
     }
     
     /**
