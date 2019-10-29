@@ -199,10 +199,11 @@ public class OrderJDBC
         {
         output.append('\n' + set.getString(1) + ", " + set.getDate(2) +
             ", " + set.getString(3) + ", " + set.getString(4)+
-            ", " + String.format("%.2f", set.getDouble(5)));
+            ", " + set.getString(5));
             	
         }
-        
+        System.out.println(output.toString());
+       
         return output.toString();
         
     }
@@ -341,6 +342,8 @@ public class OrderJDBC
     {
         System.out.println("\nExecuting query #1.");
         // TODO: Execute the SQL query and return a ResultSet.
+        
+        
         return null;
     }
     
