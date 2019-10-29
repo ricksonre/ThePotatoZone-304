@@ -341,6 +341,10 @@ public class OrderJDBC
     {
         System.out.println("\nExecuting query #1.");
         // TODO: Execute the SQL query and return a ResultSet.
+        String query = "";
+        PreparedStatement stat = con.prepareStatement(query);
+        stat.execute();
+        
         return null;
     }
     
