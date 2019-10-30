@@ -342,11 +342,10 @@ public class OrderJDBC
     {
         System.out.println("\nExecuting query #1.");
         // TODO: Execute the SQL query and return a ResultSet.
-        String query = ";
+        String query = "SELECT ProductId FROM Product WHERE Product.ProductId NOT IN (SELECT productId FROM OrderedProduct)";
         PreparedStatement stat = con.prepareStatement(query);
-        stat.execute();
-
-        return null;
+        ResultSet set = stat.executeQuery();
+        return set;
     }
 
     /**
@@ -361,7 +360,12 @@ public class OrderJDBC
     {
         System.out.println("\nExecuting query #2.");
         // TODO: Execute the SQL query and return a ResultSet.
-        return null;
+        //Return the order ids and total amount where the order total does not equal the sum of quantity*price for all ordered products in the order.
+        //String query = "SELECT Orders.OrderId, Orders.Total FROM Orders";// WHERE Orders.Total NOT IN (SELECT SUM(B.aTotal) AS Total FROM (SELECT ProductId, Quantity*Price AS aTotal FROM OrderedProduct) AS B GROUP BY B.ProductId)";
+        String query = "SELECT ProductId SUM(B.aTotal) FROM (SELECT ProductId, Quantity*Price AS aTotal FROM OrderedProduct) AS B GROUP BY B.ProductId";
+        PreparedStatement stat = con.prepareStatement(query);
+        ResultSet set = stat.executeQuery();
+        return set;
     }
 
     /**
