@@ -361,8 +361,8 @@ public class OrderJDBC
         System.out.println("\nExecuting query #2.");
         // TODO: Execute the SQL query and return a ResultSet.
         //Return the order ids and total amount where the order total does not equal the sum of quantity*price for all ordered products in the order.
-        //String query = "SELECT Orders.OrderId, Orders.Total FROM Orders";// WHERE Orders.Total NOT IN (SELECT SUM(B.aTotal) AS Total FROM (SELECT ProductId, Quantity*Price AS aTotal FROM OrderedProduct) AS B GROUP BY B.ProductId)";
-        String query = "SELECT ProductId SUM(B.aTotal) FROM (SELECT ProductId, Quantity*Price AS aTotal FROM OrderedProduct) AS B GROUP BY B.ProductId";
+        String query = "SELECT OrderId, Total FROM Orders WHERE Total NOT IN (SELECT SUM(B.aTotal) FROM (SELECT OrderId, Quantity*Price AS aTotal FROM OrderedProduct) AS B GROUP BY B.OrderId)";
+        //String query = "SELECT OrderId, SUM(B.aTotal) FROM (SELECT OrderId, Quantity*Price AS aTotal FROM OrderedProduct) AS B GROUP BY B.OrderId";
         PreparedStatement stat = con.prepareStatement(query);
         ResultSet set = stat.executeQuery();
         return set;
