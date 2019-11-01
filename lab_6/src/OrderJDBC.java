@@ -388,14 +388,14 @@ public class OrderJDBC
         		+ " and CustomerId in "
         		+ "		(select Orders.CustomerId, count(Orders.CustomerId) from Orders "
         		+ "			having count(Orders.CustomerId) > 1)"
-        		+ "			group by Orders.CustomerId) " 
+        		+ "			group by Orders.CustomerId) "
         		+ " group by Customer.CustomerId, Customer.CustomerName, Orders.Total;";
         		*/
         String query = "select c.CustomerId, CustomerName, avg(total) as avgTotal from Customer as c left join Orders as o on c.CustomerId = o.CustomerId where o.OrderDate >= '2015-01-01' group by c.customerid having count(o.customerid) > 1 order by c.customerid;";
-        
+
         PreparedStatement stat = con.prepareStatement(query);
         ResultSet set = stat.executeQuery();
-        
+
         return set;
     }
 
@@ -414,7 +414,7 @@ public class OrderJDBC
 		System.out.println("\nExecuting query #4.");
         // TODO: Execute the SQL query and return a ResultSet.
 		String query = "select e.EmployeeId, e.EmployeeName, count(e.EmployeeId) as orderCount from Employee e right join (select EmployeeId from Orders o join (select OrderId from OrderedProduct op where Quantity >= 5 group by op.OrderId) op on op.OrderId=o.OrderId) x on x.EmployeeId=e.EmployeeId group by e.EmployeeId having count(e.EmployeeId) > 1";
-		
+
         PreparedStatement stat = con.prepareStatement(query);
         ResultSet set = stat.executeQuery();
         return set;
@@ -471,4 +471,3 @@ public class OrderJDBC
         return buf.toString();
     }
 }
-
