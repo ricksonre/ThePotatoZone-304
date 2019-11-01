@@ -383,7 +383,18 @@ public class OrderJDBC
     {
         System.out.println("\nExecuting query #3.");
         // TODO: Execute the SQL query and return a ResultSet.
-        return null;
+        String query = "select Customer.CustomerId, Customer.CustomerName, avg(Orders.Total) as avgTotal"
+        		+ " from Customer join Orders "
+        		+ " where Orders.OrderDate >= date(\"2015-01-01\") "
+        		+ " and CustomerId in "
+        		+ "		(select Orders.CustomerId, count(Orders.CustomerId) from Orders "
+        		+ "			having count(Orders.CustomerId) > 1)"
+        		+ "			group by Orders.CustomerId)" 
+        		+ " group by Customer.CustomerId, Customer.CustomerName";
+        PreparedStatement stat = con.prepareStatement(query);
+        ResultSet set = stat.executeQuery();
+        
+        return set;
     }
 
 	/**
