@@ -411,7 +411,14 @@ public class OrderJDBC
 	{
 		System.out.println("\nExecuting query #4.");
         // TODO: Execute the SQL query and return a ResultSet.
-        return null;
+		String query = "SELECT Employee.EmployeeId,  Employee.EmployeeName, count(Orders.OrderId) as orderCount"
+				+ "		FROM  Employee left join Orders on Employee.EmployeeId = Orders.EmployeeId"
+				+ "		WHERE Orders.OrderId IN "
+				+ "		(select Orders.OrderId FROM Orders left join OrderedProduct on Orders.OrderId = OrderedProduct.OrderId"
+				+ "		where OrderedProduct.Quantity >= 5)";
+        PreparedStatement stat = con.prepareStatement(query);
+        ResultSet set = stat.executeQuery();
+        return set;
 	}
 
 	/*
