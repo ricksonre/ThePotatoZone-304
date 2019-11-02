@@ -2,8 +2,17 @@
 /*
 OrderJDBC.java - A JDBC program for accessing and updating an order database on MySQL.
 Lab Assignment #6
-Student name:   <your student name>
-University id:  <your university id>
+Name: 			Rickson Reichmann
+Student number: 69750420
+
+Name: 			Ren Lin
+Student number: 35321405
+
+Name: 			Alvin Krisnanto Putra
+Student number: 54658380
+
+Name: 			Manassawin Rotsawatsuk (Winter)
+Student number: 12682936
 */
 
 import java.io.File;
@@ -382,15 +391,7 @@ public class OrderJDBC
     {
         System.out.println("\nExecuting query #3.");
         // TODO: Execute the SQL query and return a ResultSet.
-       /* String query = "select Customer.CustomerId, Customer.CustomerName, avg(Orders.Total) as avgTotal"
-        		+ " from Customer join Orders "
-        		+ " where Orders.OrderDate >= date(\"2015-01-01\") "
-        		+ " and CustomerId in "
-        		+ "		(select Orders.CustomerId, count(Orders.CustomerId) from Orders "
-        		+ "			having count(Orders.CustomerId) > 1)"
-        		+ "			group by Orders.CustomerId) "
-        		+ " group by Customer.CustomerId, Customer.CustomerName, Orders.Total;";
-        		*/
+       
         String query = "select c.CustomerId, CustomerName, avg(total) as avgTotal from Customer as c left join Orders as o on c.CustomerId = o.CustomerId where o.OrderDate >= '2015-01-01' group by c.customerid having count(o.customerid) > 1 order by c.customerid;";
 
         PreparedStatement stat = con.prepareStatement(query);
