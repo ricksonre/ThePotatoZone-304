@@ -42,7 +42,17 @@ catch (java.lang.ClassNotFoundException e)
         String query = "Select orderId, product.productId, productName, quantity, price FROM  orderProduct LEFT OUTER JOIN product ON orderProduct.productId = product.productId";
         Statement stat = con.createStatement();
 
-        output.append(bmeta.getColumnName(1) + ", " + bmeta.getColumnName(2) + ", " + bmeta.getColumnName(3) + ", " + "Customer Name" + ", " + bmeta.getColumnName(6));
+        
+		
+		
+// For each order in the ResultSet
+
+	// Print out the order summary information
+	// Write a query to retrieve the products in the order
+	//   - Use a PreparedStatement as will repeat this query many times
+	// For each product in the order
+		// Write out product information 
+		output.append(bmeta.getColumnName(1) + ", " + bmeta.getColumnName(2) + ", " + bmeta.getColumnName(3) + ", " + "Customer Name" + ", " + bmeta.getColumnName(6));
         while(bset.next())
         	 {
         	  ResultSet set = stat.executeQuery(query);
@@ -60,17 +70,17 @@ catch (java.lang.ClassNotFoundException e)
         	 }
         System.out.println(output.toString());
 		out.println(output.toString());
-		
-		
-// For each order in the ResultSet
-
-	// Print out the order summary information
-	// Write a query to retrieve the products in the order
-	//   - Use a PreparedStatement as will repeat this query many times
-	// For each product in the order
-		// Write out product information 
-
 // Close connection
+		System.out.println("Closing database connection.");
+		try
+		{
+			if (con != null)
+	            con.close();
+		}
+		catch (SQLException e)
+		{
+			System.out.println(e);
+		}
 %>
 
 </body>
