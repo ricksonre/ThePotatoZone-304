@@ -56,12 +56,10 @@
 
 	if(!name.equals(""))
 	{
-		query += " where productName like %" + name + "% ";
+		query += " where productName like '%" + name + "%' ";
 	}
 	query += " order by productName asc;";
 
-
-	out.println(query + "<br>");
 	PreparedStatement stat = con.prepareStatement(query);
 	ResultSet set = stat.executeQuery();
 	
@@ -69,7 +67,7 @@
 //////////set to html////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	String tablet = "<table style='width:80%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)''>";
+	String tablet = "<br><table style='width:80%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)''>";
 	while(set.next())
 	{
 		tablet += "<tr style='border: 2px solid rgb(184, 184, 184)';>";
@@ -89,7 +87,7 @@
 
 	// Useful code for formatting currency values:
 	// NumberFormat currFormat = NumberFormat.getCurrencyInstance();
-	// out.println(currFormat.format(5.0);	// Prints $5.00
+	// out.println(currFormat.format(5.0);	// Prints $5.00*/
 %>
 
 </body>
