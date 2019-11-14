@@ -56,7 +56,7 @@
 
 	if(!name.equals(""))
 	{
-		query += " where productName like %" + name + "%";
+		query += " where productName like %" + name + "% ";
 	}
 	query += " order by productName asc;";
 
