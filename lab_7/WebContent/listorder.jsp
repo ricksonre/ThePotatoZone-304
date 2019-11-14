@@ -48,7 +48,7 @@ catch (java.lang.ClassNotFoundException e)
         while(bset.next())
         	 {
         	  output.append("<br>" + bset.getString(1) + ", " + bset.getString(2) + ", " + bset.getString(3) + ", " + bset.getString(4)+ " " + bset.getString(5) +", "+ bset.getString(6));
-        	  output.append("<br>" + meta.getColumnName(1) + ", " + meta.getColumnName(2) + ", " + meta.getColumnName(3) + ", " + meta.getColumnName(4) + ", " + meta.getColumnName(5));
+        	  output.append("<br>" +"<>" + meta.getColumnName(1) + ", " + meta.getColumnName(2) + ", " + meta.getColumnName(3) + ", " + meta.getColumnName(4) + ", " + meta.getColumnName(5));
         	  while(set.next())
         	  	   {
         		    if(bset.getString(1).equals(set.getString(1)))
