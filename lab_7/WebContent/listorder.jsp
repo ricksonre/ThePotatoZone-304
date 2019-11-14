@@ -35,19 +35,28 @@ catch (java.lang.ClassNotFoundException e)
 		Connection con = DriverManager.getConnection(url, uid, pw);
 // Write query to retrieve all order summary records
 		StringBuilder output = new StringBuilder();
-    	String query = "Select orderId, product.productId, productName, quantity, price FROM  orderProduct LEFT OUTER JOIN product ON orderProduct.productId = product.productId";
+		String bquery = "SELECT orderId, orderDate, orderSummary.customerId, customer.firstName, customer.lastName, totalAmount FROM ordersummary LEFT OUTER JOIN customer ON ordersummary.customerId = customer.customerId";
+        Statement bstat = con.createStatement();
+        ResultSet bset = bstat.executeQuery(bquery);
+        ResultSetMetaData bmeta = bset.getMetaData();
+        String query = "Select orderId, product.productId, productName, quantity, price FROM  orderProduct LEFT OUTER JOIN product ON orderProduct.productId = product.productId";
         Statement stat = con.createStatement();
-
         ResultSet set = stat.executeQuery(query);
         ResultSetMetaData meta = set.getMetaData();
 
-        output.append(meta.getColumnName(1) + ", " + meta.getColumnName(2) + ", " + meta.getColumnName(3) + ", " + meta.getColumnName(4) + ", " + meta.getColumnName(5));
-        while(set.next())
-        {
-        output.append("<br>" + set.getString(1) + ", " + set.getString(2) +
-            ", " + set.getString(3) + ", " + set.getString(4)+
-            ", " + set.getString(5));
-        }
+        output.append(bmeta.getColumnName(1) + ", " + bmeta.getColumnName(2) + ", " + bmeta.getColumnName(3) + ", " + "Customer Name" + ", " + bmeta.getColumnName(6));
+        while(bset.next())
+        	 {
+        	  output.append("<br>" + bset.getString(1) + ", " + bset.getString(2) + ", " + bset.getString(3) + ", " + bset.getString(4)+ " " + bset.getString(5) +", "+ bset.getString(6));
+        	  output.append("<br>" + meta.getColumnName(1) + ", " + meta.getColumnName(2) + ", " + meta.getColumnName(3) + ", " + meta.getColumnName(4) + ", " + meta.getColumnName(5));
+        	  while(set.next())
+        	  	   {
+        		    if(bset.getString(1).equals(set.getString(1)))
+        		      {
+        		       output.append("<br>" + "      "+ set.getString(1) + ", " + set.getString(2) + ", " + set.getString(3) + ", " + set.getString(4)+ ", " + set.getString(5));
+        		      }
+        	  	   }
+        	 }
         System.out.println(output.toString());
 		out.println(output.toString());
 		
