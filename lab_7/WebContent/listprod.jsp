@@ -1,5 +1,6 @@
 <%@ page import="java.sql.*,java.net.URLEncoder" %>
 <%@ page import="java.text.NumberFormat" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
 <!DOCTYPE html>
 <html>
@@ -55,19 +56,12 @@
 
 	if(!name.equals(""))
 	{
-		String[] split = name.split(" ");
-		query += " where productName in (?)" + split.toString();
-
-		String items = split.stream()
-		.map(x -> String.valueOf(x))
-		.collect(Collectors.joining(",", "(", ")"));
-			
-    	query = sql.replace("(?)", items);
+		query += " where productName like %" + name + "%";
 	}
 	query += " order by productName asc;";
 
-	
-	String query = "select * from product";
+
+	out.println(query + "<br>");
 	PreparedStatement stat = con.prepareStatement(query);
 	ResultSet set = stat.executeQuery();
 	
@@ -87,6 +81,8 @@
 		tablet += "</tr>";
 	}
 	out.println(tablet);
+
+	con.close();
 	// For each product create a link of the form
 	// addcart.jsp?id=productId&name=productName&price=productPrice
 	// Close connection
