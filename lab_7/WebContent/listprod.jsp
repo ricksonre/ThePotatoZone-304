@@ -17,7 +17,13 @@
 
 <% // Get product name to search for
 	String name = request.getParameter("productName");
-			
+
+	if(name.equals(""))
+	{
+		name = "all";
+	}
+
+
 	//Note: Forces loading of SQL Server driver
 	try
 	{	// Load driver class
@@ -40,11 +46,11 @@
 	String query = "select * from product";
 	PreparedStatement stat = con.prepareStatement(query);
 	ResultSet set = stat.executeQuery();
-
-	String tablet = "<table style='width:80%; border-collapse:collapse; border: 1px solid black;'>";
+	
+	String tablet = "<table style='width:80%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)''>";
 	while(set.next())
 	{
-		tablet += "<tr>";
+		tablet += "<tr style='border: 2px solid rgb(184, 184, 184)';>";
 		tablet += "<td><img src=>" + set.getString(4) + "<br><td>";
 		tablet += "<td>" + set.getString(2) + "<td>";
 		tablet += "</tr>";
