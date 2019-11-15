@@ -7,7 +7,19 @@
 <!DOCTYPE html>
 <html>
 
+
+
 <style>
+		#button a
+        {
+                text-decoration: none;
+                color: black;
+                border: 2px solid rgb(175, 175, 175);
+                background-color: rgb(221, 221, 221);
+                padding: 9px 9px 9px 9px;
+                border-radius: 17px;
+        }
+
         #header
         {
                 margin: -10px -10px -10px -10px;
@@ -103,7 +115,7 @@ else
 			+"<td align=\"right\">"+currFormat.format(total)+"</td></tr>");
 	out.println("</table>");
 
-	out.println("<h2><a href=\"checkout.jsp\">Check Out</a></h2>");
+	out.println("<h2 id='button'><a href=\"checkout.jsp\">Check Out</a></h2>");
 }
 %>
 <h2><a href="listprod.jsp?productName=">Continue Shopping</a></h2>
