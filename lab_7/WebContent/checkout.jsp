@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html>
 <style>
+        
+        #button a
+        {
+                text-decoration: none;
+                color: black;
+                border: 2px solid rgb(175, 175, 175);
+                background-color: rgb(221, 221, 221);
+                padding: 9px 9px 9px 9px;
+                border-radius: 17px;
+        }
+        #button table
+        {
+                margin-left:auto; 
+                margin-right:auto;
+        }
+
+</style>
+<style>
         #header
         {
                 margin: -10px -10px -10px -10px;
@@ -26,6 +44,7 @@
         <a href="shop.html">Home</a>
         <a href="listprod.jsp?productName=">List of Products</a>
         <a href="showcart.jsp">Shopping Cart</a>
+        <a href="listorder.jsp">List of Orders</a>
 </div>
 
 <head>

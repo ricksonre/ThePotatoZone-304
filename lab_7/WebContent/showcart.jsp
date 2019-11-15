@@ -45,6 +45,7 @@
         <a href="shop.html">Home</a>
         <a href="listprod.jsp?productName=">List of Products</a>
         <a href="showcart.jsp">Shopping Cart</a>
+        <a href="listorder.jsp">List of Orders</a>
 </div>
 
 <head>
@@ -118,7 +119,7 @@ else
 	out.println("<h2 id='button'><a href=\"checkout.jsp\">Check Out</a></h2>");
 }
 %>
-<h2><a href="listprod.jsp?productName=">Continue Shopping</a></h2>
+<h2 id='button'><a href="listprod.jsp?productName=">Continue Shopping</a></h2>
 </body>
 </html> 
 

@@ -11,7 +11,24 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
 <!DOCTYPE html>
 <html>
+<style>
+        
+        #button a
+        {
+                text-decoration: none;
+                color: black;
+                border: 2px solid rgb(175, 175, 175);
+                background-color: rgb(221, 221, 221);
+                padding: 9px 9px 9px 9px;
+                border-radius: 17px;
+        }
+        #button table
+        {
+                margin-left:auto; 
+                margin-right:auto;
+        }
 
+</style>
 <style>
         #header
         {
@@ -38,6 +55,7 @@
         <a href="shop.html">Home</a>
         <a href="listprod.jsp?productName=">List of Products</a>
         <a href="showcart.jsp">Shopping Cart</a>
+		<a href="listorder.jsp">List of Orders</a>
 </div>
 
 <head>
@@ -147,7 +165,7 @@ if(custId!= null & !custId.equals("")){
 		pstmt2.setInt(2,orderId);
 		pstmt2.executeUpdate();
 		out.println("<tr><td colspan=\"4\" align=\"right\"><b>Order Total</b></td><td aling=\"right\">$"+sum+"</td></tr>");
-		out.println("<h1>Order completed.  Will be shipped soon...</h1><h1>Your order reference number is: "+orderId+"</h1><h1>Shipping to customer: "+custId+" Name: "+name+"</h1><h2><a href=\"shop.html\">Return to shopping</a></h2>");
+		out.println("<h1>Order completed.  Will be shipped soon...</h1><h1>Your order reference number is: "+orderId+"</h1><h1>Shipping to customer: "+custId+" Name: "+name+"</h1><h2 id='button'><a href=\"shop.html\">Return to shopping</a></h2>");
 		session.setAttribute("productList",new HashMap<String, ArrayList<Object>>());
 		
 	}else{
