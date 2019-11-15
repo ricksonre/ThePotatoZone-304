@@ -52,25 +52,6 @@ catch (java.lang.ClassNotFoundException e)
 	//   - Use a PreparedStatement as will repeat this query many times
 	// For each product in the order
 		// Write out product information 
-		/*
-		output.append(bmeta.getColumnName(1) + ", " + bmeta.getColumnName(2) + ", " + bmeta.getColumnName(3) + ", " + "Customer Name" + ", " + bmeta.getColumnName(6));
-        while(bset.next())
-        	 {
-        	  ResultSet set = stat.executeQuery(query);
-        	  ResultSetMetaData meta = set.getMetaData();
-        	  output.append("<br>" + bset.getString(1) + ", " + bset.getString(2) + ", " + bset.getString(3) + ", " + bset.getString(4)+ " " + bset.getString(5) +", $"+ bset.getString(6));
-        	  output.append("<br>" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + meta.getColumnName(1) + ", " + meta.getColumnName(2) + ", " + meta.getColumnName(3) + ", " + meta.getColumnName(4) + ", " + meta.getColumnName(5));
-        	  while(set.next())
-        	  	   {
-        		    if(bset.getString(1).equals(set.getString(1)))
-        		      {
-        		       output.append("<br>" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+ set.getString(1) + ", " + set.getString(2) + ", " + set.getString(3) + ", " + set.getString(4)+ ", $" +set.getString(5));
-        		      }
-        	  	   }
-        	  output.append("<br>");
-        	 }
-        System.out.println(output.toString());
-		out.println(output.toString());*/
 		//=======================================================================================================
 		String tablet = "<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)''>";
 		tablet += "<tr><th>" +bmeta.getColumnName(1) +"</th><th>" +bmeta.getColumnName(2) +"</th><th>" +bmeta.getColumnName(3) +"</th><th width=20% >Customer Name</th><th>" +bmeta.getColumnName(6) +"</th><th>" +"</tr>";
