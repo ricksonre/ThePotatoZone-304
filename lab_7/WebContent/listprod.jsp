@@ -66,28 +66,24 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////set to html////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+	NumberFormat currFormat = NumberFormat.getCurrencyInstance();
+	
 	String tablet = "<br><table style='width:80%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)''>";
 	while(set.next())
 	{
-		tablet += "<tr style='border: 2px solid rgb(184, 184, 184)';>";
-		tablet += "<td width=150 height=150 style='padding: 5px 5px 5px 9px;'><img width=150 height=150 style='background: solid rgb(184, 184, 184);' src=" 
-			+ set.getString(4) + "></td>";
-		tablet += "<td style='padding: 9px 9px 9px 9px;'><p style='font-size:20px;margin-bottom: 15px;'>" + set.getString(2) + "</p>";
-		tablet += "<p>" + set.getString(6) + "<br></p>";
-		tablet += "<p>" + set.getString(3) + "<br></p></td>";
-		tablet += "</tr>";
+		tablet += "<tr style='border: 2px solid rgb(184, 184, 184)';>"
+			+ "<td width=150 height=150 style='padding: 5px 5px 5px 9px;'><img width=150 height=150 style='background: solid rgb(184, 184, 184);' src=" 
+			+ set.getString(4) + "></td>"
+			+ "<td style='padding: 9px 9px 9px 9px;'><p style='font-size:20px;margin-bottom: 15px;'>" + set.getString(2) + "</p>"
+		 	+ "<p>" + set.getString(6) + "<br></p>"
+			+ "<p>" + currFormat.format(set.getDouble(3)) + "<br></p>"
+			+ "<a style='border-radius: 6px; color:black; text-decoration:none; padding: 3px 3px 3px 3px; border: 2px solid rgb(184, 184, 184); background-color: #ffe894' href='addcart.jsp?id=" + set.getString(1) + "&name=" + set.getString(2) + "&price=" + set.getString(3) + "'>Add To Cart</a>"
+			+ "</td>"
+			+ "</tr>";
 	}
 	out.println(tablet);
 
 	con.close();
-	// For each product create a link of the form
-	// addcart.jsp?id=productId&name=productName&price=productPrice
-	// Close connection
-
-	// Useful code for formatting currency values:
-	// NumberFormat currFormat = NumberFormat.getCurrencyInstance();
-	// out.println(currFormat.format(5.0);	// Prints $5.00*/
 %>
 
 </body>
