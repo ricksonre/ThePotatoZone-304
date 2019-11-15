@@ -77,7 +77,7 @@ else
 	out.println("<h2><a href=\"checkout.jsp\">Check Out</a></h2>");
 }
 %>
-<h2><a href="listprod.jsp">Continue Shopping</a></h2>
+<h2><a href="listprod.jsp?productName=">Continue Shopping</a></h2>
 </body>
 </html> 
 
