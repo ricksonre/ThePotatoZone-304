@@ -50,8 +50,9 @@
 String custId = request.getParameter("customerId");
 @SuppressWarnings({"unchecked"})
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
-	
-	if(custId!= null & !custId.equals("")){
+
+try{
+if(custId!= null & !custId.equals("")){
 
 // Determine if valid customer id was entered
 // Determine if there are products in the shopping cart
@@ -159,6 +160,9 @@ HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Obje
 	}else{
 		out.println("<H1>Invalid Order</H1>");
 	}
+}catch(Exception e){
+	out.println("<H1>Invalid Order</H1>");
+}
 
 // Print out order summary
 
