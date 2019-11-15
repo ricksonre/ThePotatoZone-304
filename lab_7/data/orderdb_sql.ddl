@@ -63,7 +63,7 @@ CREATE TABLE product (
     productId           INT IDENTITY,
     productName         VARCHAR(40),
     productPrice        DECIMAL(10,2),
-    productImageURL     VARCHAR(100),
+    productImageURL     VARCHAR(500),
     productImage        VARBINARY(MAX),
     productDesc         VARCHAR(1000),
     categoryId          INT,
@@ -147,35 +147,35 @@ INSERT INTO category(categoryName) VALUES ('Confections');
 INSERT INTO category(categoryName) VALUES ('Grains/Cereals');
 
 
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Chai', 1, '10 boxes x 20 bags',18.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Chang',1,'24 - 12 oz bottles',19.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Aniseed Syrup',2,'12 - 550 ml bottles',10.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Chef Anton''s Cajun Seasoning',2,'48 - 6 oz jars',22.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Chef Anton''s Gumbo Mix',2,'36 boxes',21.35);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Grandma''s Boysenberry Spread',2,'12 - 8 oz jars',25.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Uncle Bob''s Organic Dried Pears',4,'12 - 1 lb pkgs.',30.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Northwoods Cranberry Sauce',2,'12 - 12 oz jars',40.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Mishi Kobe Niku',5,'18 - 500 g pkgs.',97.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Ikura',6,'12 - 200 ml jars',31.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Queso Cabrales',3,'1 kg pkg.',21.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Queso Manchego La Pastora',3,'10 - 500 g pkgs.',38.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Tofu',4,'40 - 100 g pkgs.',23.25);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Genen Shouyu',2,'24 - 250 ml bottles',15.50);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Pavlova',7,'32 - 500 g boxes',17.45);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Alice Mutton',5,'20 - 1 kg tins',39.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Carnarvon Tigers',6,'16 kg pkg.',62.50);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Teatime Chocolate Biscuits',7,'10 boxes x 12 pieces',9.20);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Sir Rodney''s Marmalade',7,'30 gift boxes',81.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Sir Rodney''s Scones',7,'24 pkgs. x 4 pieces',10.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Gustaf''s Knackebread',8,'24 - 500 g pkgs.',21.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Sasquatch Ale',1,'24 - 12 oz bottles',14.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Steeleye Stout',1,'24 - 12 oz bottles',18.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Inlagd Sill',6,'24 - 250 g  jars',19.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Boston Crab Meat',6,'24 - 4 oz tins',18.40);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Jack''s New England Clam Chowder',6,'12 - 12 oz cans',9.65);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Singaporean Hokkien Fried Mee',8,'32 - 1 kg pkgs.',14.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Louisiana Fiery Hot Pepper Sauce',2,'32 - 8 oz bottles',21.05);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Laughing Lumberjack Lager',1,'24 - 12 oz bottles',14.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Chai', 1, '10 boxes x 20 bags',18.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Chang',1,'24 - 12 oz bottles',19.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Aniseed Syrup',2,'12 - 550 ml bottles',10.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Chef Anton''s Cajun Seasoning',2,'48 - 6 oz jars',22.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Chef Anton''s Gumbo Mix',2,'36 boxes',21.35);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Grandma''s Boysenberry Spread',2,'12 - 8 oz jars',25.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Uncle Bob''s Organic Dried Pears',4,'12 - 1 lb pkgs.',30.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Northwoods Cranberry Sauce',2,'12 - 12 oz jars',40.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Mishi Kobe Niku',5,'18 - 500 g pkgs.',97.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Ikura',6,'12 - 200 ml jars',31.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Queso Cabrales',3,'1 kg pkg.',21.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Queso Manchego La Pastora',3,'10 - 500 g pkgs.',38.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Tofu',4,'40 - 100 g pkgs.',23.25);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Genen Shouyu',2,'24 - 250 ml bottles',15.50);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Pavlova',7,'32 - 500 g boxes',17.45);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Alice Mutton',5,'20 - 1 kg tins',39.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Carnarvon Tigers',6,'16 kg pkg.',62.50);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Teatime Chocolate Biscuits',7,'10 boxes x 12 pieces',9.20);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Sir Rodney''s Marmalade',7,'30 gift boxes',81.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Sir Rodney''s Scones',7,'24 pkgs. x 4 pieces',10.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Gustaf''s Knackebread',8,'24 - 500 g pkgs.',21.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Sasquatch Ale',1,'24 - 12 oz bottles',14.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Steeleye Stout',1,'24 - 12 oz bottles',18.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Inlagd Sill',6,'24 - 250 g  jars',19.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Boston Crab Meat',6,'24 - 4 oz tins',18.40);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Jack''s New England Clam Chowder',6,'12 - 12 oz cans',9.65);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Singaporean Hokkien Fried Mee',8,'32 - 1 kg pkgs.',14.00);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Louisiana Fiery Hot Pepper Sauce',2,'32 - 8 oz bottles',21.05);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'https://cosc304.ok.ubc.ca/69750420/tomcat/lab7/WebContent/ptt.jpg','Laughing Lumberjack Lager',1,'24 - 12 oz bottles',14.00);
     
 INSERT INTO customer (firstName, lastName, email, phonenum, address, city, state, postalCode, country, userid, password) VALUES ('Arnold', 'Anderson', 'a.anderson@gmail.com', '204-111-2222', '103 AnyWhere Street', 'Winnipeg', 'MB', 'R3X 45T', 'Canada', 'arnold' , 'test');
 INSERT INTO customer (firstName, lastName, email, phonenum, address, city, state, postalCode, country, userid, password) VALUES ('Bobby', 'Brown', 'bobby.brown@hotmail.ca', '572-342-8911', '222 Bush Avenue', 'Boston', 'MA', '22222', 'United States', 'bobby' , 'bobby');
