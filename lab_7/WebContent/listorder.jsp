@@ -78,13 +78,13 @@ catch (java.lang.ClassNotFoundException e)
 			{
 				ResultSet set = stat.executeQuery(query);
       			ResultSetMetaData meta = set.getMetaData();
-				tablet += "<tr><td>" +bset.getString(1) +"</td><td>" +bset.getString(2) +"</td><td>" +bset.getString(3) +"</td><td>"+bset.getString(4)+" "+bset.getString(5) +"</td><td>" +bset.getString(6) +"</td><td>" +"</tr>";
-				tablet += "<tr><th>" +meta.getColumnName(1) +"</th><th>" +meta.getColumnName(2) +"</th><th>" +meta.getColumnName(3) +"</th><th>" +meta.getColumnName(4) +"</th><th>" +bmeta.getColumnName(6) +"</th><th>" +"</tr>";
+				tablet += "<tr><td>" +bset.getString(1) +"</td><td>" +bset.getString(2) +"</td><td>" +bset.getString(3) +"</td><td>"+bset.getString(4)+" "+bset.getString(5) +"</td><td>$" +bset.getString(6) +"</td><td>" +"</tr>";
+				tablet += "<tr><th> </th><th> </th><th>" +meta.getColumnName(3) +"</th><th>" +meta.getColumnName(4) +"</th><th>" +meta.getColumnName(5) +"</th><th>" +"</tr>";
 				while(set.next())
 					{
 						if(bset.getString(1).equals(set.getString(1)))
       		    		  {
-							tablet += "<tr><td>" +set.getString(1) +"</td><td>" +set.getString(2) +"</td><td>" +set.getString(3) +"</td><td>"+set.getString(4)+"</td><td>" +set.getString(5) +"</td><td></tr>";
+							tablet += "<tr><td> </td><td> </td><td>" +set.getString(3) +"</td><td>"+set.getString(4)+"</td><td>$"+set.getString(5) +"</td><td></tr>";
       		    		  }
 					}
 			}
