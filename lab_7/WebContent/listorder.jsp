@@ -78,7 +78,9 @@ catch (java.lang.ClassNotFoundException e)
 			{
 				ResultSet set = stat.executeQuery(query);
       			ResultSetMetaData meta = set.getMetaData();
+      			tablet += "<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)''>";
 				tablet += "<tr><td>" +bset.getString(1) +"</td><td>" +bset.getString(2) +"</td><td>" +bset.getString(3) +"</td><td>"+bset.getString(4)+" "+bset.getString(5) +"</td><td>$" +bset.getString(6) +"</td><td>" +"</tr>";
+				tablet += "<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)''>";
 				tablet += "<tr><th> </th><th> </th><th>" +meta.getColumnName(3) +"</th><th>" +meta.getColumnName(4) +"</th><th>" +meta.getColumnName(5) +"</th><th>" +"</tr>";
 				while(set.next())
 					{
