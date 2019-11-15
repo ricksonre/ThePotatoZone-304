@@ -1,5 +1,6 @@
 <%@ page import="java.sql.*,java.net.URLEncoder" %>
 <%@ page import="java.text.NumberFormat" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
 <!DOCTYPE html>
 <html>
@@ -55,19 +56,10 @@
 
 	if(!name.equals(""))
 	{
-		String[] split = name.split(" ");
-		query += " where productName in (?)" + split.toString();
-
-		String items = split.stream()
-		.map(x -> String.valueOf(x))
-		.collect(Collectors.joining(",", "(", ")"));
-			
-    	query = sql.replace("(?)", items);
+		query += " where productName like '%" + name + "%' ";
 	}
 	query += " order by productName asc;";
 
-	
-	String query = "select * from product";
 	PreparedStatement stat = con.prepareStatement(query);
 	ResultSet set = stat.executeQuery();
 	
@@ -75,7 +67,7 @@
 //////////set to html////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	String tablet = "<table style='width:80%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)''>";
+	String tablet = "<br><table style='width:80%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)''>";
 	while(set.next())
 	{
 		tablet += "<tr style='border: 2px solid rgb(184, 184, 184)';>";
@@ -87,13 +79,15 @@
 		tablet += "</tr>";
 	}
 	out.println(tablet);
+
+	con.close();
 	// For each product create a link of the form
 	// addcart.jsp?id=productId&name=productName&price=productPrice
 	// Close connection
 
 	// Useful code for formatting currency values:
 	// NumberFormat currFormat = NumberFormat.getCurrencyInstance();
-	// out.println(currFormat.format(5.0);	// Prints $5.00
+	// out.println(currFormat.format(5.0);	// Prints $5.00*/
 %>
 
 </body>
