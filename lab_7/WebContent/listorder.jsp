@@ -52,6 +52,7 @@ catch (java.lang.ClassNotFoundException e)
 	//   - Use a PreparedStatement as will repeat this query many times
 	// For each product in the order
 		// Write out product information 
+		/*
 		output.append(bmeta.getColumnName(1) + ", " + bmeta.getColumnName(2) + ", " + bmeta.getColumnName(3) + ", " + "Customer Name" + ", " + bmeta.getColumnName(6));
         while(bset.next())
         	 {
@@ -69,7 +70,26 @@ catch (java.lang.ClassNotFoundException e)
         	  output.append("<br>");
         	 }
         System.out.println(output.toString());
-		out.println(output.toString());
+		out.println(output.toString());*/
+		//=======================================================================================================
+		String tablet = "<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)''>";
+		tablet += "<tr><th>" +bmeta.getColumnName(1) +"</th><th>" +bmeta.getColumnName(2) +"</th><th>" +bmeta.getColumnName(3) +"</th><th>Customer Name</th><th>" +bmeta.getColumnName(6) +"</th><th>" +"</tr>";
+		while(bset.next())
+			{
+				ResultSet set = stat.executeQuery(query);
+      			ResultSetMetaData meta = set.getMetaData();
+				tablet += "<tr><td>" +bset.getString(1) +"</td><td>" +bset.getString(2) +"</td><td>" +bset.getString(3) +"</td><td>"+bset.getString(4)+" "+bset.getString(5) +"</td><td>" +bset.getString(6) +"</td><td>" +"</tr>";
+				tablet += "<tr><th>" +meta.getColumnName(1) +"</th><th>" +meta.getColumnName(2) +"</th><th>" +meta.getColumnName(3) +"</th><th>" +meta.getColumnName(4) +"</th><th>" +bmeta.getColumnName(6) +"</th><th>" +"</tr>";
+				while(set.next())
+					{
+						if(bset.getString(1).equals(set.getString(1)))
+      		    		  {
+							tablet += "<tr><td>" +set.getString(1) +"</td><td>" +set.getString(2) +"</td><td>" +set.getString(3) +"</td><td>"+set.getString(4)+"</td><td>" +set.getString(5) +"</td><td></tr>";
+      		    		  }
+					}
+			}
+			out.println(tablet);
+				//=======================================================================================================
 // Close connection
 		System.out.println("Closing database connection.");
 		try
