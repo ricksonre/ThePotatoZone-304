@@ -81,11 +81,11 @@
 //////////string manage////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	String query = "select * from product";
+	String query = "select * from product left join category on product.categoryId = category.categoryId";
 
 	if(!name.equals(""))
 	{
-		query += " where productName like '%" + name + "%' ";
+		query += " where productName like '%" + name + "%' or category.categoryName like '%" + name + "%' ";
 	}
 	query += " order by productName asc;";
 
@@ -105,6 +105,7 @@
 			+ set.getString(4) + "></td>"
 			+ "<td style='padding: 9px 9px 9px 9px;'><p style='font-size:20px;margin-bottom: 15px;'>" + set.getString(2) + "</p>"
 		 	+ "<p>" + set.getString(6) + "<br></p>"
+		 	+ "<p style='font-weight:bold;'>" + set.getString(9) + "<br></p>"
 			+ "<p>" + currFormat.format(set.getDouble(3)) + "<br></p>"
 			+ "<a style='border-radius: 6px; color:black; text-decoration:none; padding: 3px 3px 3px 3px; border: 2px solid rgb(184, 184, 184); background-color: #ffe894' href=\"addcart.jsp?id=" + set.getString(1) + "&name=" + set.getString(2) + "&price=" + set.getString(3) + "\">Add To Cart</a>"
 			+ "</td>"
