@@ -73,20 +73,20 @@ catch (java.lang.ClassNotFoundException e)
 		out.println(output.toString());*/
 		//=======================================================================================================
 		String tablet = "<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)''>";
-		tablet += "<tr><th>" +bmeta.getColumnName(1) +"</th><th>" +bmeta.getColumnName(2) +"</th><th>" +bmeta.getColumnName(3) +"</th><th>Customer Name</th><th>" +bmeta.getColumnName(6) +"</th><th>" +"</tr>";
+		tablet += "<tr><th>" +bmeta.getColumnName(1) +"</th><th>" +bmeta.getColumnName(2) +"</th><th>" +bmeta.getColumnName(3) +"</th><th width=20% >Customer Name</th><th>" +bmeta.getColumnName(6) +"</th><th>" +"</tr>";
 		while(bset.next())
 			{
 				ResultSet set = stat.executeQuery(query);
       			ResultSetMetaData meta = set.getMetaData();
       			tablet += "<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)''>";
-				tablet += "<tr><td>" +bset.getString(1) +"</td><td>" +bset.getString(2) +"</td><td>" +bset.getString(3) +"</td><td>"+bset.getString(4)+" "+bset.getString(5) +"</td><td>$" +bset.getString(6) +"</td><td>" +"</tr>";
+				tablet += "<tr><th width=15% >" +bset.getString(1) +"</th><th width=25% >" +bset.getString(2) +"</th><th width=10% >" +bset.getString(3) +"</th><th  >"+bset.getString(4)+" "+bset.getString(5) +"</th><th width=20% >$" +bset.getString(6) +"</th><th>" +"</tr>";
 				tablet += "<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)''>";
 				tablet += "<tr><th> </th><th> </th><th>" +meta.getColumnName(3) +"</th><th>" +meta.getColumnName(4) +"</th><th>" +meta.getColumnName(5) +"</th><th>" +"</tr>";
 				while(set.next())
 					{
 						if(bset.getString(1).equals(set.getString(1)))
       		    		  {
-							tablet += "<tr><td> </td><td> </td><td>" +set.getString(3) +"</td><td>"+set.getString(4)+"</td><td>$"+set.getString(5) +"</td><td></tr>";
+							tablet += "<tr><td> </td><td> </td><td width=50% >" +set.getString(3) +"</td><th>"+set.getString(4)+"</th><th>$"+set.getString(5) +"</th><th></tr>";
       		    		  }
 					}
 			}
