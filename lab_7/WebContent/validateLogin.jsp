@@ -35,7 +35,20 @@
 			getConnection();
 			
 			// TODO: Check if userId and password match some customer account. If so, set retStr to be the username.
-			retStr = "";			
+			String uid = "rreichma";
+			String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_rreichma;";
+			String pw = "69750420";
+			Connection con = DriverManager.getConnection(url, uid, pw);
+			String query = "SELECT userid,password FROM customer WHERE userid=? AND password =?";	
+			
+			
+			PreparedStatement stat = con.prepareStatement(query);
+			stat.setString(1, username);
+			stat.setString(2,password);
+			ResultSet set = stat.executeQuery();
+			if (!set.next())
+				retStr = "";
+
 		} 
 		catch (SQLException ex) {
 			out.println(ex);
