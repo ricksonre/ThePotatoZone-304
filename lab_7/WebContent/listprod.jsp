@@ -104,7 +104,7 @@
 		tablet += "<tr style='border: 2px solid rgb(184, 184, 184)';>"
 			+ "<td width=150 height=150 style='padding: 5px 5px 5px 9px;'><img width=150 height=150 style='background: solid rgb(184, 184, 184);' src=" 
 			+ set.getString(4) + "></td>"
-			+ "<td style='padding: 9px 9px 9px 9px;'><p style='font-size:20px;margin-bottom: 15px;'>" + set.getString(2) + "</p>"
+			+ "<td style='padding: 9px 9px 9px 9px;'><p style='font-size:20px;margin-bottom: 15px;'><a href=\"product.jsp?id="+set.getString(1)+"\">"+ set.getString(2) + "</a></p>"
 		 	+ "<p>" + set.getString(6) + "<br></p>"
 		 	+ "<p style='font-weight:bold;'>" + set.getString(9) + "<br></p>"
 			+ "<p>" + currFormat.format(set.getDouble(3)) + "<br></p>"
