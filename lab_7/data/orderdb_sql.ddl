@@ -63,7 +63,7 @@ CREATE TABLE product (
     productId           INT IDENTITY,
     productName         VARCHAR(40),
     productPrice        DECIMAL(10,2),
-    productImageURL     VARCHAR(500),
+    productImageURL     VARCHAR(1000),
     productImage        VARBINARY(MAX),
     productDesc         VARCHAR(1000),
     categoryId          INT,
@@ -217,3 +217,17 @@ SELECT @orderId = @@IDENTITY
 INSERT INTO orderproduct (orderId, productId, quantity, price) VALUES (@orderId, 5, 4, 21.35)
 INSERT INTO orderproduct (orderId, productId, quantity, price) VALUES (@orderId, 19, 2, 81)
 INSERT INTO orderproduct (orderId, productId, quantity, price) VALUES (@orderId, 20, 3, 10);
+
+
+-- New SQL DDL for lab 8
+UPDATE Product SET productImageURL = 'https://thumbor.thedailymeal.com/5StypYF9HM9sO0adTKggiwc1qvk=/870x565/https://www.thedailymeal.com/sites/default/files/2014/09/25/istock_000010134416xsmall.jpg' WHERE ProductId = 1;
+UPDATE Product SET productImageURL = 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/are-potatoes-healthy-1570222022.jpg?crop=0.669xw:1.00xh;0.331xw,0&resize=480:*' WHERE ProductId = 2;
+UPDATE Product SET productImageURL = 'https://cafedelites.com/wp-content/uploads/2017/10/Crispy-Garlic-Roasted-Potatoes-IMAGE-18.jpg' WHERE ProductId = 3;
+UPDATE Product SET productImageURL = 'https://www.abelandcole.co.uk/media/33_4036_z.jpg' WHERE ProductId = 4;
+UPDATE Product SET productImageURL = 'https://www.simplyrecipes.com/wp-content/uploads/2014/11/yukon-gold-potatoes-horiz-1200.jpg' WHERE ProductId = 5;
+UPDATE Product SET productImageURL = 'https://www.simplyrecipes.com/wp-content/uploads/2014/11/yukon-gold-potatoes-horiz-1200.jpg' WHERE ProductId = 5;
+UPDATE Product SET productImageURL = 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80' WHERE ProductId = 6;
+UPDATE Product SET productImageURL = 'https://images-na.ssl-images-amazon.com/images/I/41SnI3JpZKL.jpg' WHERE ProductId = 7;
+UPDATE Product SET productImageURL = 'https://images-na.ssl-images-amazon.com/images/I/81459bqY2HL._SX679_.jpg' WHERE ProductId = 8;
+UPDATE Product SET productImageURL = 'https://www.koan.co.ke/wp-content/uploads/2019/08/81TJK4QAa2L._SL1500_.jpg	' WHERE ProductId = 9;
+UPDATE Product SET productImageURL = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDKvO0ol25ZE_ifWN3jhtwfKRXyBhSnTojM9ehCj5NQsAB84V8&s' WHERE ProductId = 10;
