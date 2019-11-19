@@ -23,6 +23,7 @@
 	{
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		System.out.print(username+password);
 		String retStr = null;
 
 		if(username == null || password == null)
@@ -32,23 +33,28 @@
 
 		try 
 		{
-			getConnection();
+			
+			
 			
 			// TODO: Check if userId and password match some customer account. If so, set retStr to be the username.
 			String uid = "rreichma";
 			String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_rreichma;";
 			String pw = "69750420";
 			Connection con = DriverManager.getConnection(url, uid, pw);
-			String query = "SELECT userid,password FROM customer WHERE userid=? AND password =?";	
-			
+			String query = "SELECT userid,password FROM customer WHERE userid=? AND password =?;";	
+			System.out.print("pass");
 			
 			PreparedStatement stat = con.prepareStatement(query);
 			stat.setString(1, username);
 			stat.setString(2,password);
 			ResultSet set = stat.executeQuery();
-			if (!set.next())
+			System.out.println(set.toString());
+			if (set.next()){
 				retStr = "";
-
+				System.out.print("pass3");
+			}
+			
+			System.out.print("pass2");
 		} 
 		catch (SQLException ex) {
 			out.println(ex);

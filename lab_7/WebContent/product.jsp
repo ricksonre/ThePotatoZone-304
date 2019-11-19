@@ -15,7 +15,7 @@
 <%
 // Get product name to search for
 // TODO: Retrieve and display info for the product
-// String productId = request.getParameter("id");
+String productId = request.getParameter("id");
 
 String sql = "";
 
