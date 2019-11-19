@@ -144,7 +144,7 @@ if(custId!= null & !custId.equals("")){
 			double pr = Double.parseDouble(price);
 			
 			int qty = ( (Integer)product.get(3)).intValue();
-			sum+=pr*qty;
+			sum=pr*qty;
 			
 			String sql3= "INSERT INTO orderproduct (orderId, productId, quantity, price) VALUES (?,?,?,?);";
 			PreparedStatement pstmt2 = con.prepareStatement(sql3);
