@@ -1,5 +1,6 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.sql.*" %>
 <%
 // Get the current list of products
 @SuppressWarnings({"unchecked"})
@@ -10,13 +11,32 @@ if (productList == null)
 	productList = new HashMap<String, ArrayList<Object>>();
 }
 
-// Add new product selected
+try
+{	// Load driver class
+	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+}
+catch (java.lang.ClassNotFoundException e)
+{
+	out.println("ClassNotFoundException: " +e);
+}
+//Make connection
+		String uid = "rreichma";
+		String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_rreichma;";
+		String pw = "69750420";
+		Connection con = DriverManager.getConnection(url, uid, pw);
 // Get product information
-String id = request.getParameter("id");
-String name = request.getParameter("name");
-String price = request.getParameter("price");
-Integer quantity = new Integer(1);
-
+		String id = request.getParameter("id");
+// Write query to retrieve all order summary records
+		StringBuilder output = new StringBuilder();
+		String query = "SELECT productName, productPrice FROM product WHERE productId = " +id;
+        Statement stat = con.createStatement();
+        ResultSet set = stat.executeQuery(query);
+        ResultSetMetaData meta = set.getMetaData();
+        set.next();
+// Add new product selected
+		String name = set.getString(1);
+		String price = set.getString(2);
+		Integer quantity = new Integer(1);
 // Store product information in an ArrayList
 ArrayList<Object> product = new ArrayList<Object>();
 product.add(id);
