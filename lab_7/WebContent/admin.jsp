@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
+<%@ include file='header.jsp' %>
 <head>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 <title>Administrator Page</title>
 </head>
 <body>
+
 
 
 
