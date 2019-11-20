@@ -33,9 +33,11 @@
 			if (!(request.getParameter("update") == null || request.getParameter("update").equals(""))) {
 				if (productList.containsKey(request.getParameter("update"))) {
 					product2 = (ArrayList<Object>) productList.get(request.getParameter("update"));
-					if (request.getParameter("newqty") != "undefined") {
+					try{
 						int curAmount = ((Integer) product2.get(3)).intValue();
 						product2.set(3, new Integer(request.getParameter("newqty")));
+					}catch(Exception e){
+						
 					}
 				}
 			} else if (!(request.getParameter("delete") == null || request.getParameter("delete").equals(""))) {
@@ -85,13 +87,13 @@
 					} catch (Exception e) {
 						out.println("Invalid quantity for product: " + product.get(0) + " quantity: " + qty);
 					}
-					out.print("<td align=\"center\"><input type=\"text\" name=\"newqty1\" size=\"3\" value=\"" + qty
+					out.print("<td align=\"center\"><input type=\"text\" name=\"newqty"+id+"\" size=\"3\" value=\"" + qty
 							+ "\"></td>");
 					out.print("<td align=\"right\">" + currFormat.format(pr) + "</td>");
 					out.print("<td align=\"right\">" + currFormat.format(pr * qty) + "</td>");
 					out.print("<td align=\"right\"><a href=\"showcart.jsp?delete=" + id + "\">Remove Product</a></td>");
 					out.print("<td align=\"right\"><input type=\"button\" onclick=\"update(" + id
-							+ ",  document.form1.newqty1.value)\" value=\"Update Quantity\"></td>");
+							+ ",  document.form1.newqty"+id+".value)\" value=\"Update Quantity\"></td>");
 					out.println("</tr>");
 					total = total + pr * qty;
 				}
