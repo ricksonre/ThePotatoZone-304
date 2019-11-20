@@ -6,7 +6,16 @@
         <a href="listprod.jsp?productName=">List of Products</a>
         <a href="showcart.jsp">Shopping Cart</a>
         <a href="listorder.jsp">List of Orders</a>
-        <a href="login.jsp">Login</a>
+<%
+	if(session.getAttribute("authenticatedUser")!=null)
+	{
+		out.println("<a href=\"customer.jsp\">Customer Info</a>");
+		out.println("<a href=\"admin.jsp\">Admin</a>");
+		out.println("<a href=\"logout.jsp\">Logout</a>");
+	}
+	else
+		out.println("<a href=\"login.jsp\">Login</a>");
+%>
 </div>
 <head>
         <title>POT-8O Orbital Bombardment Groceries Main Page</title>
