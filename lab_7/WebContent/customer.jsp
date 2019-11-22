@@ -7,13 +7,20 @@
 </head>
 <body>
 
+
+<%
+	String userName = session.getAttribute("authenticatedUser");
+
+	if(userName == null)
+	{
+		out.println("please login to see this page!");
+		response.sendRedirect("login.jsp");
+	}
+%>
+
 <%@ include file="auth.jsp"%>
 <%@ page import="java.text.NumberFormat" %>
 <%@ include file="jdbc.jsp" %>
-
-<%
-	String userName = (String) session.getAttribute("authenticatedUser");
-%>
 
 <%
 
@@ -29,11 +36,12 @@
 	stat.setString(1, session.getAttribute("authenticatedUser").toString());
 	
 	ResultSet set = stat.executeQuery();
-	out.println("<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)'>");
+	
 	int u = 1;
 	set.next();
 	ResultSetMetaData meta = set.getMetaData();
 	
+	out.println("<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)'>");
 	for(int i =1;i<11;i++){
 		out.println("<tr><th>"+meta.getColumnName(i) +"</th><td>"+set.getString(i)+"</td></tr>");
 		
