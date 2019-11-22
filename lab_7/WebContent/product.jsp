@@ -35,9 +35,11 @@ out.print("<h2>"+set.getString(2)+"</h2><table>"
         +"<td>" 
             +(set.getString(4)==null?"":("<img width=150 height=150 src=\""+set.getString(4)+"\">")) 
         +"</td>"
-        +"<td>" 
-           // +"<img width=150 height=150 src='displayImage.jsp?id="+productId+">"
-        +"</td>"
+        +"<td>");
+
+out.print("<img href='displayImage.jsp?id=" + productId +"'>");
+
+out.print("</td>"
     +"</tr>"
     +"<tr>"
         +"<th>Id</th><td>" +set.getString(1)
