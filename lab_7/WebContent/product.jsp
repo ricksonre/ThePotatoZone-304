@@ -35,7 +35,7 @@ out.print("<h2>"+set.getString(2)+"</h2><table>"
             +(set.getString(4)==null?"":("<img width=150 height=150 src=\""+set.getString(4)+"\">")) 
         +"</td>"
         +"<td>" 
-            +"<img width=150 height=150 src='displayImage.jsp?id=${productId}'>")) 
+            +"<img width=150 height=150 src='displayImage.jsp?id=${productId}'>"
         +"</td>"
     +"</tr>"
     +"<tr>"

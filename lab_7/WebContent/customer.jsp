@@ -12,7 +12,7 @@
 <%@ include file="jdbc.jsp" %>
 
 <%
-	String userName = session.getAttribute("authenticatedUser");
+	String userName = session.getAttribute("authenticatedUser").toString();
 
 	if(userName == null)
 	{

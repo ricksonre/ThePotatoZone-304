@@ -19,10 +19,10 @@
         
         	<td><h2 align="center"><a href="listorder.jsp">List All Orders</a></h2></td></tr></table>
                 <%
-	                String userName = session.getAttribute("authenticatedUser");
+	                String userName = (String)session.getAttribute("authenticatedUser");
                         if(userName != null)
                         {
-                                out.println("LogOn account: " + userName);
+                                out.println("<p style='text-align: center;'>Loged on account: " + userName);
                         }
                 %>
         </div>
