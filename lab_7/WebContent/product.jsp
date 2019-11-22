@@ -13,13 +13,17 @@
 <%@ include file="header.jsp" %>
 
 <%
+
+//String uid = "rreichma";
+//	String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_rreichma;";
+///	String pw = "69750420";
+//	Connection con = DriverManager.getConnection(url, uid, pw);
 // Get product name to search for
 // TODO: Retrieve and display info for the product
 String productId = request.getParameter("id");
-String uid = "rreichma";
-String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_rreichma;";
-String pw = "69750420";
-Connection con = DriverManager.getConnection(url, uid, pw);
+
+getConnection();
+
 String query =  "SELECT * FROM product WHERE productId=?";	
 System.out.print("pass");
 

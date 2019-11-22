@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <div id="header">
-        <a href="shop.jsp">Home</a>
+        <a href="index.jsp">Home</a>
         <a href="listprod.jsp?productName=">List of Products</a>
         <a href="showcart.jsp">Shopping Cart</a>
         <a href="listorder.jsp">List of Orders</a>

@@ -21,7 +21,7 @@
 	}
 
 	// TODO: Modify SQL to retrieve productImage given productId
-	String sql = "select productImage from product where productId = " + idVal;
+	String sql = "select productImage from product where productId = ?";
 
 	try 
 	{

@@ -18,10 +18,8 @@ out.println("<h2>Administrator Sales Report by Day</h2>");
 
 // TODO: Write SQL query that prints out total order amount by day
 
-String uid = "rreichma";
-String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_rreichma;";
-String pw = "69750420";
-Connection con = DriverManager.getConnection(url, uid, pw);
+getConnection();
+
 String query = "SELECT orderDate,totalAmount FROM ordersummary ORDER BY orderDate;";	
 System.out.print("pass");	
 PreparedStatement stat = con.prepareStatement(query);
@@ -47,13 +45,14 @@ while(set.next()){
 	}
 	
 }
-
+	NumberFormat currFormat = NumberFormat.getCurrencyInstance();
 	out.print("<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)'>");
+	out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th>Date</th><th>Total Amount</th></tr>");
 	for (int i =0; i <dateboy.length;i++){
 		if(dateboy[i]!=null){
 			
-			out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th>"+dateboy[i]+"<th>");
-			out.println("<td>"+((datesum[i]*100)-(datesum[i]*100)%0.01)+"</td></tr>");
+			out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><td style='text-align: center; border: 2px solid rgb(184, 184, 184)'>"+dateboy[i]+"</td>");
+			out.println("<td style='text-align: right; border: 2px solid rgb(184, 184, 184)'>"+currFormat.format(datesum[i])+"</td></tr>");
 		}else{
 			break;
 		}

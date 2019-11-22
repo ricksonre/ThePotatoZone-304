@@ -7,11 +7,13 @@
 </head>
 <body>
 <br><br>
+
 <%@ include file="auth.jsp"%>
 <%@ page import="java.text.NumberFormat" %>
 <%@ include file="jdbc.jsp" %>
 
 <%
+	getConnection();
 	String userName = session.getAttribute("authenticatedUser").toString();
 
 	if(userName == null)
@@ -19,24 +21,16 @@
 		out.println("please login to see this page!");
 		response.sendRedirect("login.jsp");
 	}
-%>
 
-<%@ include file="auth.jsp"%>
-<%@ page import="java.text.NumberFormat" %>
-<%@ include file="jdbc.jsp" %>
-
-<%
-
-// TODO: Print Customer information
-
+/*
 	String uid = "rreichma";
 	String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_rreichma;";
 	String pw = "69750420";
-	Connection con = DriverManager.getConnection(url, uid, pw);
+	Connection con = DriverManager.getConnection(url, uid, pw);*/
 	String query = "SELECT * FROM customer WHERE userid=?;";
 	System.out.print("pass");
 	PreparedStatement stat = con.prepareStatement(query);
-	stat.setString(1, session.getAttribute("authenticatedUser").toString());
+	stat.setString(1, userName);
 
 	ResultSet set = stat.executeQuery();
 
