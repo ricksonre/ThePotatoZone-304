@@ -37,7 +37,7 @@ out.print("<h2>"+set.getString(2)+"</h2><table>"
         +"</td>"
         +"<td>");
 
-out.print("<img href='displayImage.jsp?id=" + productId +"'>");
+out.print("<img src='displayImage.jsp?id=" + productId +"'>");
 
 out.print("</td>"
     +"</tr>"

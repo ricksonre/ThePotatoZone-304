@@ -7,9 +7,6 @@
 </head>
 <body>
 
-
-
-
 <%@ include file="auth.jsp"%>
 <%@ page import="java.text.NumberFormat" %>
 <%@ include file="jdbc.jsp" %>
@@ -55,8 +52,8 @@ while(set.next()){
 	for (int i =0; i <dateboy.length;i++){
 		if(dateboy[i]!=null){
 			
-			out.print("<tr><th>"+dateboy[i]+"<th>");
-			out.println("<td>"+((datesum[i]*100)-(datesum[i]*100)%0.01)+"</td><tr>");
+			out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th>"+dateboy[i]+"<th>");
+			out.println("<td>"+((datesum[i]*100)-(datesum[i]*100)%0.01)+"</td></tr>");
 		}else{
 			break;
 		}
