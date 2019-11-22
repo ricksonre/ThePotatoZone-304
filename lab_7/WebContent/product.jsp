@@ -28,6 +28,7 @@ stat.setString(1, productId);
 
 ResultSet set = stat.executeQuery();
 set.next();
+NumberFormat currFormat = NumberFormat.getCurrencyInstance();
 
 out.print("<h2>"+set.getString(2)+"</h2><table>"
     +"<tr> "
@@ -35,14 +36,14 @@ out.print("<h2>"+set.getString(2)+"</h2><table>"
             +(set.getString(4)==null?"":("<img width=150 height=150 src=\""+set.getString(4)+"\">")) 
         +"</td>"
         +"<td>" 
-            +"<img width=150 height=150 src='displayImage.jsp?id=${productId}'>"
+            +"<img width=150 height=150 src='displayImage.jsp?id=$"+productId+">"
         +"</td>"
     +"</tr>"
     +"<tr>"
         +"<th>Id</th><td>" +set.getString(1)
     +"</td></tr>"
-        +"<tr><th>Price</th><td>$"+set.getDouble(3)+"</td></tr>"
-        + "<tr><td>$"+set.getDouble(2)+"</td></tr>"
+        +"<tr><th>Price</th><td>"+ currFormat.format(set.getDouble(3))+"</td></tr>"
+        + "<tr><td>"+set.getString(2)+"</td></tr>"
     +"</table>");
 out.print("<h3><a href=\"addcart.jsp?id="+set.getString(1)+"&name="+set.getString(2)+"&price="+set.getString(3)+"\">Add to Cart</a></h3>");
 out.print("<h3><a href=\"listprod.jsp?productName=\">Continue Shopping</a>");
