@@ -50,6 +50,7 @@ while(set.next()){
 	}
 	
 }
+
 	out.print("<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)'>");
 	for (int i =0; i <dateboy.length;i++){
 		if(dateboy[i]!=null){

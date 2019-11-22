@@ -12,31 +12,42 @@
 <%@ include file="jdbc.jsp" %>
 
 <%
-	String userName = (String) session.getAttribute("authenticatedUser");
+	String userName = session.getAttribute("authenticatedUser");
+
+	if(userName == null)
+	{
+		out.println("please login to see this page!");
+		response.sendRedirect("login.jsp");
+	}
 %>
+
+<%@ include file="auth.jsp"%>
+<%@ page import="java.text.NumberFormat" %>
+<%@ include file="jdbc.jsp" %>
 
 <%
 
 // TODO: Print Customer information
-	
+
 	String uid = "rreichma";
 	String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_rreichma;";
 	String pw = "69750420";
 	Connection con = DriverManager.getConnection(url, uid, pw);
-	String query = "SELECT * FROM customer WHERE userid=?;";	
-	System.out.print("pass");	
+	String query = "SELECT * FROM customer WHERE userid=?;";
+	System.out.print("pass");
 	PreparedStatement stat = con.prepareStatement(query);
 	stat.setString(1, session.getAttribute("authenticatedUser").toString());
-	
+
 	ResultSet set = stat.executeQuery();
-	out.println("<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)'>");
+
 	int u = 1;
 	set.next();
 	ResultSetMetaData meta = set.getMetaData();
-	
+
+	out.println("<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)'>");
 	for(int i =1;i<11;i++){
 		out.println("<tr><th>"+meta.getColumnName(i) +"</th><td>"+set.getString(i)+"</td></tr>");
-		
+
 	}
 	out.println("</table>");
 
@@ -46,4 +57,3 @@
 
 </body>
 </html>
-

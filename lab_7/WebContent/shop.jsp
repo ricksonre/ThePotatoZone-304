@@ -18,6 +18,13 @@
         	<table><tr><td><h2 align="center"><a href="listprod.jsp?productName=">Begin Shopping</a></h2></td>
         
         	<td><h2 align="center"><a href="listorder.jsp">List All Orders</a></h2></td></tr></table>
+                <%
+	                String userName = session.getAttribute("authenticatedUser");
+                        if(userName != null)
+                        {
+                                out.println("LogOn account: " + userName);
+                        }
+                %>
         </div>
 
 </body>
