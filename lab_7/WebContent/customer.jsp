@@ -6,7 +6,7 @@
 <title>Customer Page</title>
 </head>
 <body>
-
+<br><br>
 <%@ include file="auth.jsp"%>
 <%@ page import="java.text.NumberFormat" %>
 <%@ include file="jdbc.jsp" %>

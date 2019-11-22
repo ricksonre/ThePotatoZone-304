@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>Ray's Grocery - Product Information</title>
+<title>Pot-8o orbital bombardment</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
