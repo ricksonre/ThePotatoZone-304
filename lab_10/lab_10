@@ -1,0 +1,61 @@
+<!DOCTYPE OrderDB [
+    <!ELEMENT OrderDB(Order*, Customer+, Product+)>
+    <!ELEMENT Order(LineItem+, totalAmount?)>
+        <!ATTLIST Order orderId ID #REQUIRED>
+        <!ATTLIST Order customerId IDREF #IMPLIED>
+    <!ELEMENT totalAmount(#PCDATA)>
+    <!ELEMENT LineItem(quantity, price)>
+        <!ATTLIST LineItem productId IDREF #REQUIRED>
+    <!ELEMENT quantity(#PCDATA)>
+    <!ELEMENT price(#PCDATA)>
+    <!ELEMENT Customer(cname, address?)>
+        <!ATTLIST Customer customerId ID #REQUIRED>
+    <!ELEMENT cname(#PCDATA)>
+    <!ELEMENT address(#PCDATA)>
+    <!ELEMENT Product(pname, category, price)>
+        <!ATTLIST Product productId ID #REQUIRED>
+    <!ELEMENT pname(#PCDATA)>
+    <!ELEMENT category(#PCDATA)>
+    <!ELEMENT price(#PCDATA)>
+]>
+
+<?xml version="1.0" standalone="no"?>
+    <!DOCTYPE OrderDB SYSTEM "OrderDB.dtd">
+
+    <Order orderId = "ord1" customerId = "cust1">
+        <LineItem productId = "prod1"><quantity>5</quantity><price>5.00</price></LineItem>
+        <LineItem productId = "prod2"><quantity>1</quantity><price>22.00</price></LineItem>
+        <totalAmount>47.00</totalAmount>
+    </Order>
+    <Order orderId = "ord2>
+        <LineItem productId = "prod1"><price>25.00</price><quantity>1</quantity></LineItem>
+        <totalAmount>24.00</totalAmount>
+    </Order>
+    <Order orderId = "ord3" customerId = "cust1">
+        <LineItem productId = "prod1"><quantity>2</quantity><price>50.00</LineItem>
+    </Order>
+    <Customer customerId = "cust1">
+        <cname>Joe Smith</cname>
+    </Customer>
+    <Customer customerId = "2">
+        <cname>Steve Stone</cname>
+        <address>134 Neverland Ave.</address>
+        <numOrders>1</numOrders>
+    </Customer>
+    <Product>
+        <pname>Soap</pname>
+        <category>Personal Hygiene</category>
+        <price>5.00</price>
+    </Product>
+    <Product productId = "prod2">
+        <pname>Electric Toothbrush</pname>
+        <price>25.00</price>
+    </Product>
+
+Question 1 (4 marks) Find all errors in the XML document. Indicate if the error violates the document being valid or well-formed.
+Question 2 (2 marks) Write a XPath query that returns all products whose price is $10.
+Question 3 (2 marks) Write a XPath query that returns all order information for customer with id = "cust1".
+Question 4 (2 marks) Write a XPath query that returns the order ids where the order has totalAmount > $20 and contains the product with id = "prod1".
+
+
+

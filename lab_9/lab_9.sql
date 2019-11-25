@@ -37,6 +37,15 @@ drop view customerandorders;
 --1
     create trigger update_total_amount
         after update on orderproduct
+        for each row
         update ordersummary
         set ordersummary.TotalAmount = 
-            (select sum);
+            ();
+
+        select orderId, sum(price*quantity) as totalAmount
+        from orderproduct
+        group by orderId;
+        --------------?????????????????????????/
+
+--2
+    
