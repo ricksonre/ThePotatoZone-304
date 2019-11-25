@@ -52,10 +52,22 @@
         <price>25.00</price>
     </Product>
 
-Question 1 (4 marks) Find all errors in the XML document. Indicate if the error violates the document being valid or well-formed.
-Question 2 (2 marks) Write a XPath query that returns all products whose price is $10.
-Question 3 (2 marks) Write a XPath query that returns all order information for customer with id = "cust1".
-Question 4 (2 marks) Write a XPath query that returns the order ids where the order has totalAmount > $20 and contains the product with id = "prod1".
+Question 1 (4 marks) Find all errors in the XML document. 
+Indicate if the error violates the document being valid or 
+well-formed.
+
+
+Question 2 (2 marks) Write a XPath query that returns all products 
+whose price is $10.
+
+
+Question 3 (2 marks) Write a XPath query that returns all order 
+information for customer with id = "cust1".
+
+
+Question 4 (2 marks) Write a XPath query that returns the order 
+ids where the order has totalAmount > $20 and contains the product 
+with id = "prod1".
 
 
 
