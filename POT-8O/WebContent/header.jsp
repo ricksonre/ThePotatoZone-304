@@ -6,13 +6,17 @@
         <a href="showcart.jsp">Shopping Cart</a>
         <a href="listorder.jsp">List of Orders</a>
 <%
-	if(session.getAttribute("authenticatedUser")!=null)
+	{
+	String userName = (String)session.getAttribute("authenticatedUser");
+	if(userName != null)
 	{
 		out.println("<a href=\"customer.jsp\">Customer Info</a>");
 		out.println("<a href=\"admin.jsp\">Admin</a>");
-		out.println("<a href=\"logout.jsp\">Logout</a>");
+		out.println("<p style='text-align: right;'>" + userName + ",<p>");
+		out.println("<a style='text-align: right; href=\"logout.jsp\">Logout</a>");
 	}
 	else
-		out.println("<a href=\"login.jsp\">Login</a>");
+		out.println("<a style='text-align: right; href=\"login.jsp\">Login</a>");
+	}
 %>
 </div>
