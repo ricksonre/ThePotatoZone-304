@@ -47,5 +47,11 @@ drop view customerandorders;
         group by orderId;
         --------------?????????????????????????/
 
+    create trigger insert_total_amount
+        after insert on orderproduct
+        for each row
+
+    create trigger delete_total_amount
+        after delete on orderproduct
+        for each row
 --2
-    
