@@ -38,9 +38,10 @@
 	set.next();
 	ResultSetMetaData meta = set.getMetaData();
 
-	out.println("<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)'>");
+
+	out.println("<table id='customerInfo' style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)'>");
 	for(int i =1;i<11;i++){
-		out.println("<tr><th>"+meta.getColumnName(i) +"</th><td>"+set.getString(i)+"</td></tr>");
+		out.println("<tr style='margin: 9px 9px 9px 9px'><th width = '20%' style='font-size:22px; padding-top: 9px; padding-bottom: 9px;'>"+meta.getColumnName(i) +"</th><td style='font-size:20px; padding-top: 9px; padding-bottom: 9px;'>"+set.getString(i)+"</td></tr>");
 
 	}
 	out.println("</table>");
