@@ -58,6 +58,52 @@ while(set.next()){
 		}
 	}
 	out.print("</table>");
+//List Customers
+String custQuery = "SELECT customerId, firstName, lastName FROM customer";
+PreparedStatement custStat = con.prepareStatement(custQuery);
+ResultSet custSet = custStat.executeQuery();
+
+out.println("<h2>Customer List</h2>");
+out.print("<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)'>");
+out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th width=10% >ID</th><th width=90% >Full Name</th></tr>");
+while(custSet.next())
+	 {
+	  out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><td style='text-align: center; border: 2px solid rgb(184, 184, 184)'>"+custSet.getString(1)+"</td>");
+	  out.println("<td style='text-align: center; border: 2px solid rgb(184, 184, 184)'>"+custSet.getString(2)+" "+custSet.getString(3)+"</td></tr>");
+	 }
+out.print("</table>");
+//List Total Sales
+String saleQuery = "SELECT orderId, totalAmount FROM ordersummary";
+PreparedStatement saleStat = con.prepareStatement(saleQuery);
+ResultSet saleSet = saleStat.executeQuery();
+
+out.println("<h2>Total Orders</h2>");
+out.print("<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)'>");
+out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th width=10% >Order ID</th><th width=90% >Total Amount</th></tr>");
+while(saleSet.next())
+	 {
+	  out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><td style='text-align: center; border: 2px solid rgb(184, 184, 184)'>"+saleSet.getString(1)+"</td>");
+	  out.println("<td style='text-align: center; border: 2px solid rgb(184, 184, 184)'>"+saleSet.getString(2)+"</td></tr>");
+	 }
+saleQuery = "SELECT SUM(totalAmount) FROM ordersummary";
+saleStat = con.prepareStatement(saleQuery);
+saleSet = saleStat.executeQuery();
+saleSet.next();
+out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th style='text-align: center; border: 2px solid rgb(184, 184, 184)'>Total Sales</th>");
+out.println("<td style='text-align: center; border: 2px solid rgb(184, 184, 184)'>"+saleSet.getString(1)+"</td></tr>");
+out.print("</table>");
+
+//Close connection
+		System.out.println("Closing database connection.");
+		try
+		{
+			if (con != null)
+	            con.close();
+		}
+		catch (SQLException e)
+		{
+			System.out.println(e);
+		}
 %>
 
 </body>
