@@ -14,7 +14,7 @@
 		out.print("<a style='text-align: right;' href=\"logout.jsp\">Logout</a>");
 	}
 	else
-		out.print("<a' href=\"login.jsp\">Login</a>");
+		out.print("<a href=\"login.jsp\">Login</a>");
 
 %>
 </div>
