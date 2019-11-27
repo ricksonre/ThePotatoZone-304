@@ -20,7 +20,13 @@
 //	Connection con = DriverManager.getConnection(url, uid, pw);
 // Get product name to search for
 // TODO: Retrieve and display info for the product
-String productId = request.getParameter("id");
+
+String productId="";
+if(request.getParameter("id")==null){
+	productId = session.getAttribute("currentProduct").toString();
+}else{
+	productId = request.getParameter("id");
+}
 
 getConnection();
 
@@ -53,14 +59,16 @@ out.print("</td>"
     +"</table>");
 out.print("<h3><a href=\"addcart.jsp?id="+set.getString(1)+"&name="+set.getString(2)+"&price="+set.getString(3)+"\">Add to Cart</a></h3>");
 out.print("<h3><a href=\"listprod.jsp?productName=\">Continue Shopping</a>");
-
-// TODO: If there is a productImageURL, display using IMG tag
-		
-// TODO: Retrieve any image stored directly in database. Note: Call displayImage.jsp with product id as parameter.
-		
-// TODO: Add links to Add to Cart and Continue Shopping
+session.setAttribute("currentProduct", productId);
 %>
+<form name="form1" method=post action="addreviews.jsp">
+<br>
+<textarea rows="6" cols="80" placeholder="Enter review here"></textarea>
+<br>
+<INPUT TYPE="SUBMIT" VALUE="Submit">
 
+
+</form>
 </body>
 </html>
 
