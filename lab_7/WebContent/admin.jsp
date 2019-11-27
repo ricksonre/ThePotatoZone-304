@@ -105,7 +105,42 @@ out.print("</table>");
 			System.out.println(e);
 		}
 %>
-
+<!-- Add Product -->>
+<br>
+<form name="AddProd" method=post action="addProduct.jsp">
+<table style="display:inline">
+<tr>
+	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Product ID:</font></div></td>
+	<td><input type="number" name="productId"  size=10 maxlength=10></td>
+</tr>
+<tr>
+	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Product Name:</font></div></td>
+	<td><input type="text" name="productName" size=40 maxlength="40"></td>
+</tr>
+<tr>
+	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Product Price:</font></div></td>
+	<td><input type="number" name="productPrice" size=10 maxlength="10" step=".01" ></td>
+</tr>
+<tr>
+	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Product Image URL:</font></div></td>
+	<td><input type="url" name="productImageURL" size=40 maxlength="1000"></td>
+</tr>
+<tr>
+	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Product Image:</font></div></td>
+	<td><input type="file" name="productImage"></td>
+</tr>
+<tr>
+	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Product Description:</font></div></td>
+	<td><input type="text" name="productDesc" size=40 maxlength="1000"></td>
+</tr>
+<tr>
+	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Category ID:</font></div></td>
+	<td><input type="number" name="categoryId" size=10 maxlength="10"></td>
+</tr>
+</table>
+<br/>
+<input class="submit" type="submit" name="Submit2" value="Add Product">
+</form>
 </body>
 </html>
 
