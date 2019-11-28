@@ -33,6 +33,8 @@
                                 <td>
                                         <h2 align="center">
                                              <%
+                                                //if loged display button to logout
+                                                //      if not display button to login
                                                 if(session.getAttribute("authenticatedUser")!=null)
                                                 {
                                                         out.println("<a href=\"logout.jsp\">Logout</a>");
@@ -46,6 +48,7 @@
                         <td>
                                 <h2 align="center">
                                         <%
+                                                //if logged display user page
                                                 if(session.getAttribute("authenticatedUser")!=null)
                                                 {
                                                         out.println("<a href=\"customer.jsp\">Customer Info</a>");
@@ -57,6 +60,7 @@
                         </tr>
                 </table>
                 <%
+                        // if logged display the currently logged username
 	                String userName = (String)session.getAttribute("authenticatedUser");
                         if(userName != null)
                         {

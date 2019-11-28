@@ -14,35 +14,38 @@
 
 <%
 
-//String uid = "rreichma";
-//	String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_rreichma;";
-///	String pw = "69750420";
-//	Connection con = DriverManager.getConnection(url, uid, pw);
-// Get product name to search for
-// TODO: Retrieve and display info for the product
+//gets the product id from the get request
 String productId = request.getParameter("id");
 
+//connects to the db
 getConnection();
 
+//select all information about the product from the id selected
 String query =  "SELECT * FROM product WHERE productId=?";	
 System.out.print("pass");
 
+//prepares the query and executes it
 PreparedStatement stat = con.prepareStatement(query);
 stat.setString(1, productId);
-
 ResultSet set = stat.executeQuery();
+
+//as the id is unique goes to index 1
 set.next();
+
+//currency formating
 NumberFormat currFormat = NumberFormat.getCurrencyInstance();
 
+//prints name of the product and below it a image of the product
 out.print("<h2>"+set.getString(2)+"</h2><table>"
     +"<tr> "
         +"<td>" 
             +(set.getString(4)==null?"":("<img width=150 height=150 src=\""+set.getString(4)+"\">")) 
         +"</td>"
         +"<td>");
-
+//display image from the db
 out.print("<img src='displayImage.jsp?id=" + productId +"'>");
 
+// prints all other informations about the product (description, price, ...)
 out.print("</td>"
     +"</tr>"
     +"<tr>"
@@ -51,14 +54,11 @@ out.print("</td>"
         +"<tr><th>Price</th><td>"+ currFormat.format(set.getDouble(3))+"</td></tr>"
         + "<tr><td>"+set.getString(2)+"</td></tr>"
     +"</table>");
+//display buttons to add item to the cart
 out.print("<h3><a href=\"addcart.jsp?id="+set.getString(1)+"&name="+set.getString(2)+"&price="+set.getString(3)+"\">Add to Cart</a></h3>");
+//button to resturn to the list of products
 out.print("<h3><a href=\"listprod.jsp?productName=\">Continue Shopping</a>");
 
-// TODO: If there is a productImageURL, display using IMG tag
-		
-// TODO: Retrieve any image stored directly in database. Note: Call displayImage.jsp with product id as parameter.
-		
-// TODO: Add links to Add to Cart and Continue Shopping
 %>
 
 </body>

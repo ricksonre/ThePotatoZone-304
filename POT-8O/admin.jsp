@@ -14,24 +14,34 @@
 <%@ page import="java.util.Date"%>
 
 <%
+// page header
 out.println("<h2>Administrator Sales Report by Day</h2>");
 
-// TODO: Write SQL query that prints out total order amount by day
-
+//connects to the db
 getConnection();
 
+//preapares statements to get saales report
 String query = "SELECT orderDate,totalAmount FROM ordersummary ORDER BY orderDate;";	
 System.out.print("pass");	
 PreparedStatement stat = con.prepareStatement(query);
 
-
+//run prepared statement
 ResultSet set = stat.executeQuery();
-	String[] dateboy = new String[100000];
-	Double[] datesum = new Double[100000];
-	int currentdate = 0;
-while(set.next()){
-	SimpleDateFormat simple = new SimpleDateFormat("yyyy MM dd"); 
+
+//creates containers to keep information about the sales
+String[] dateboy = new String[100000];
+Double[] datesum = new Double[100000];
+int currentdate = 0;
+
+//loops through result set from prepared statement
+while(set.next())
+{
+	//format to display date as
+	SimpleDateFormat simple = new SimpleDateFormat("yyyy-MM-dd"); 
+	//get date attr from the result set
 	Date result = new Date(set.getDate(1).getTime()); 
+
+	//handles assigns the values from the result set into the arrays and sum sales the sales if necessary
 	if(dateboy[currentdate]==null){
 		dateboy[currentdate]=simple.format(result);
 		datesum[currentdate]=set.getDouble(2);
@@ -45,9 +55,12 @@ while(set.next()){
 	}
 	
 }
+	//curerency format
 	NumberFormat currFormat = NumberFormat.getCurrencyInstance();
+	//prints table header
 	out.print("<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)'>");
 	out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th>Date</th><th>Total Amount</th></tr>");
+	//loops through the arrays and prints its values into the table
 	for (int i =0; i <dateboy.length;i++){
 		if(dateboy[i]!=null){
 			
@@ -58,6 +71,8 @@ while(set.next()){
 		}
 	}
 	out.print("</table>");
+
+	con.close();
 %>
 
 </body>

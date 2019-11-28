@@ -46,7 +46,8 @@
 	String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_rreichma;";
 	String uid = "rreichma";
 	String pw = "69750420";
-			
+
+	//connects to the db		
 	System.out.println("Connecting to database.");
 	Connection con = DriverManager.getConnection(url, uid, pw);
 
@@ -54,23 +55,31 @@
 //////////string manage////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+	// query to select products to display from the search query
+	//	if the search box is empty selects everything
 	String query = "select * from product left join category on product.categoryId = category.categoryId";
-
 	if(!name.equals(""))
 	{
 		query += " where productName like '%" + name + "%' or category.categoryName like '%" + name + "%' ";
 	}
 	query += " order by productName asc;";
 
+	//prepares and executies the query
 	PreparedStatement stat = con.prepareStatement(query);
 	ResultSet set = stat.executeQuery();
 	
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////set to html////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	//currency formating
 	NumberFormat currFormat = NumberFormat.getCurrencyInstance();
 	
+	//creates table
 	String tablet = "<br><table style='width:80%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)''>";
+	
+	//loop through the result set and prints a new row with the product information
+	//	img, name, category, price, description
 	while(set.next())
 	{
 		tablet += "<tr style='border: 2px solid rgb(184, 184, 184)';>"
@@ -86,6 +95,7 @@
 	}
 	out.println(tablet);
 
+	//closes connection
 	con.close();
 %>
 
