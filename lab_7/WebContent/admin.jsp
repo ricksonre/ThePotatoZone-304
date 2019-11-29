@@ -190,6 +190,20 @@ out.print("</table>");
 <input class="submit" type="submit" name="Submit2" value="Delete Product">
 </form>
 
+<!-- ==================Restore Database================== -->
+<h2>Restore Database</h2>
+<br>
+<form name="DeleteProd" method=post action="restore.jsp">
+<table style="display:inline">
+<tr>
+	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Input "RESTORE" to restore the database:</font></div></td>
+	<td><input type="text" name="confirm" size=10 maxlength="40"></td>
+</tr>
+</table>
+<br/>
+<input class="submit" type="submit" name="Submit2" value="RESTORE THE DATABASE!">
+</form>
+
 </body>
 </html>
 

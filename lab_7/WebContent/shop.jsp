@@ -12,7 +12,7 @@
    
 <h1 align="center">POT-8O Orbital Bombardment Groceries</h1>
 
-<img src="https://i.imgur.com/RotNh8n.png" alt="POT-8O OBG" width="60%" style='position: relative; left: 20%; right: 20%'>
+<img src="https://i.imgur.com/RotNh8n.png" alt="POT-8O OBG" height="40%" style='position: relative; left: 20%; right: 20%'>
 
 		<div id='button'>
         	<table>
