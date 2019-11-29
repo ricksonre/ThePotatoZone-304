@@ -56,5 +56,17 @@ drop view customerandorders;
 		FOR EACH ROW
 		UPDATE ordersummary SET totalAmount = totalAmount -OldR.quantity*OldR.price WHERE OldR.orderId = ordersummary.orderId
 --2
+	CREATE TRIGGER deletecustomerordersum
+	BEFORE DELETE ON customer
+		REFERENCING
+			OLD ROW AS OldR
+		FOR EACH ROW
+		DELETE FROM ordersummary WHERE OldR.customerId = ordersummary.customerId
 
+	CREATE TRIGGER deletecustomerorderprod
+	BEFORE DELETE ON ordersummary
+		REFERENCING
+			OLD ROW AS OldR
+		FOR EACH ROW
+		DELETE FROM orderproduct WHERE OldR.orderId = orderproduct.orderId
 
