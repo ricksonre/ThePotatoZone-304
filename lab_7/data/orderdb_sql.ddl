@@ -85,8 +85,9 @@ CREATE TABLE orderproduct (
 );
 CREATE TABLE reviews (
 
-	productId INT,
+	productId varchar(10),
 	content varchar(3000),
+	rating INT,
 	cname varchar(50),
 	
 

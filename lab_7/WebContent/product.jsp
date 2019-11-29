@@ -57,7 +57,7 @@
 		if (session.getAttribute("authenticatedUser") != null) {
 
 			out.println(
-					"<form name=\"form1\" method=post action=\"addreviews.jsp\"><br><textarea name = \"textarea1\" rows=\"6\" cols=\"80\" placeholder=\"Enter review here\"></textarea><br><INPUT TYPE=\"SUBMIT\" VALUE=\"Submit\"></form>");
+					"<form name=\"form1\" method=post action=\"addreviews.jsp\"><br>Rate using Potatoes <INPUT TYPE=\"radio\" name=\"command\" value=\"1\"/> 1 Potato <INPUT TYPE=\"radio\" name=\"command\" value=\"2\"/> 2 Potato <INPUT TYPE=\"radio\" name=\"command\" value=\"3\"/> 3 Potato<br><textarea name = \"textarea1\" rows=\"6\" cols=\"80\" placeholder=\"Enter review here\"></textarea><br><INPUT TYPE=\"SUBMIT\" VALUE=\"Submit\"></form>");
 
 		}
 	%>

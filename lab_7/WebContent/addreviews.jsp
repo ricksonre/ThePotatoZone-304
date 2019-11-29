@@ -10,11 +10,10 @@
 		String pw = "69750420";
 		Connection con = DriverManager.getConnection(url, uid, pw);
 		
-		String sql = "INSERT INTO reviews (productId, content,cname) VALUES (?, ?,?)";
+		String sql = "INSERT INTO reviews (productId, content,cname,rating) VALUES (?, ?,?,?)";
 		PreparedStatement pstmt = con.prepareStatement(sql);
-		pstmt = con.prepareStatement(sql);
-		
-		pstmt.setString(1,custId);
+		pstmt = con.prepareStatement(sql);		
+		pstmt.setString(1,session.getAttribute("currentProduct").toString());
 		pstmt.setString(2,formatter.format(date));
 		pstmt.setDouble(3,sum);
 		
