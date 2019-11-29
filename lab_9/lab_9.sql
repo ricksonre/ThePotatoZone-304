@@ -57,3 +57,4 @@ drop view customerandorders;
 		UPDATE ordersummary SET totalAmount = totalAmount -OldR.quantity*OldR.price WHERE OldR.orderId = ordersummary.orderId
 --2
 
+
