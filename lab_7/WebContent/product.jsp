@@ -15,8 +15,12 @@
 <%
 
 //gets the product id from the get request
-String productId = request.getParameter("id");
-
+String productId = "";
+if (request.getParameter("id") == null) {
+	productId = session.getAttribute("currentProduct").toString();
+} else {
+	productId = request.getParameter("id");
+	}
 //connects to the db
 getConnection();
 
