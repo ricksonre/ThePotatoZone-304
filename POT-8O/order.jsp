@@ -112,7 +112,7 @@ if(custId!= null & !custId.equals("")){
 		pstmt2.setInt(2,orderId);
 		pstmt2.executeUpdate();
 		out.println("<tr><td colspan=\"4\" align=\"right\"><b>Order Total</b></td><td aling=\"right\">$"+sum+"</td></tr>");
-		out.println("<h1>Order completed.  Will be shipped soon...</h1><h1>Your order reference number is: "+orderId+"</h1><h1>Shipping to customer: "+custId+" Name: "+name+"</h1><h2 id='button'><a href=\"shop.html\">Return to shopping</a></h2>");
+		out.println("<h1>Order completed.  Will be shipped soon...</h1><h1>Your order reference number is: "+orderId+"</h1><h1>Shipping to customer: "+custId+" Name: "+name+"</h1><h2 id='button'><a href=\"index.jsp\">Return to shopping</a></h2>");
 		session.setAttribute("productList",new HashMap<String, ArrayList<Object>>());
 		
 	}else{
