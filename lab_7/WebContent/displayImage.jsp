@@ -20,14 +20,18 @@
 		return; 
 	}
 
-	// TODO: Modify SQL to retrieve productImage given productId
+	// retrieves productImage given productId
 	String sql = "select productImage from product where productId = ?";
 
 	try 
 	{
+		//connects to the db
 		getConnection();
+
+		//prepares query
 		PreparedStatement stmt = con.prepareStatement(sql);
 		stmt.setInt(1,idVal);
+		//run queries
 		ResultSet rst = stmt.executeQuery();		
 
 		int BUFFER_SIZE = 10000;
@@ -46,6 +50,7 @@
 			ostream.flush();
 			istream.close();					
 		}
+
 	} 
 	catch (SQLException ex) {
 		out.println(ex);

@@ -25,63 +25,55 @@ String custId = request.getParameter("customerId");
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
 
 try{
-if(custId!= null & !custId.equals("")){
 
 // Determine if valid customer id was entered
 // Determine if there are products in the shopping cart
 // If either are not true, display an error message
+if(custId!= null & !custId.equals("")){
 
-// Make connection
-
-// Save order information to database
-	
+	// Make connection
 	String uid = "rreichma";
 	String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_rreichma;";
 	String pw = "69750420";
 	Connection con = DriverManager.getConnection(url, uid, pw);
+
+	// query first and last name from a user from the db
 	String sql = "SELECT firstName,lastName FROM customer WHERE customerId LIKE '"+custId+"';";
 	String name = "";
-	//String sql2 = "SELECT * FROM customer WHERE customerId ="+custId;
-	
-	
-	
+
 	// Use retrieval of auto-generated keys.
 	PreparedStatement pstmt = con.prepareStatement(sql);
 	ResultSet rst = null;
 	rst = pstmt.executeQuery();
 	
+	// loops through the result set and get the customer name
 	if(rst.next()){
 		out.println("<H2>"+"Your Order Summary"+"</H2>");
 		name=rst.getString(1)+" "+rst.getString(2);
-		
-		
-		
 
-	// Insert each item into OrderProduct table using OrderId from previous INSERT
-
-	// Update total amount for order record
-
-	// Here is the code to traverse through a HashMap
-	// Each entry in the HashMap is an ArrayList with item 0-id, 1-name, 2-quantity, 3-price
-	
 	double sum=0;
 
 	
-	
+		//iterates the product list
 		Iterator<Map.Entry<String, ArrayList<Object>>> iterator = productList.entrySet().iterator();
 		
-		
+		//format to display the date
 		SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		//get the current date
 		Date date = new Date(System.currentTimeMillis());
 		
+		//insert order into order summary
 		String sql2 = "INSERT INTO ordersummary (customerId, orderDate, totalAmount) VALUES (?, ?, ?)";
 		pstmt = con.prepareStatement(sql2, Statement.RETURN_GENERATED_KEYS);
 		
+		//set information to be inserted into the db
 		pstmt.setString(1,custId);
 		pstmt.setString(2,formatter.format(date));
 		pstmt.setDouble(3,sum);
 		
+		//executes the query
 		pstmt.executeUpdate();
+		
 		
 		ResultSet keys = pstmt.getGeneratedKeys();
 		keys.next();
