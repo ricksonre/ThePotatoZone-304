@@ -35,23 +35,38 @@ drop view customerandorders;
 
 --Question 2 - Triggers
 --1
-    create trigger update_total_amount
-        after update on orderproduct
-        for each row
-        update ordersummary
-        set ordersummary.TotalAmount = 
-            ();
+    CREATE TRIGGER updateordersummary
+    	AFTER UPDATE ON orderproduct
+    	REFERENCING
+			NEW ROW AS UpdatedR
+			OLD ROW AS OldR
+    	UPDATE ordersummary SET totalAmount = totalAmount +(UpdatedR.quantity*UpdatedR.price)-(OldR.quantity*OldR.price) WHERE UpdatedR.orderId = ordersummary.orderId
 
-        select orderId, sum(price*quantity) as totalAmount
-        from orderproduct
-        group by orderId;
-        --------------?????????????????????????/
+    CREATE TRIGGER insertordersummary
+		AFTER INSERT ON orderproduct
+		REFERENCING
+			NEW ROW AS UpdatedR
+		FOR EACH ROW
+		UPDATE ordersummary SET totalAmount = totalAmount +UpdatedR.quantity*UpdatedR.price WHERE UpdatedR.orderId = ordersummary.orderId
 
-    create trigger insert_total_amount
-        after insert on orderproduct
-        for each row
-
-    create trigger delete_total_amount
-        after delete on orderproduct
-        for each row
+    CREATE TRIGGER deleteordersummary
+		AFTER DELETE ON orderproduct
+		REFERENCING
+			OLD ROW AS OldR
+		FOR EACH ROW
+		UPDATE ordersummary SET totalAmount = totalAmount -OldR.quantity*OldR.price WHERE OldR.orderId = ordersummary.orderId
 --2
+	CREATE TRIGGER deletecustomerordersum
+	BEFORE DELETE ON customer
+		REFERENCING
+			OLD ROW AS OldR
+		FOR EACH ROW
+		DELETE FROM ordersummary WHERE OldR.customerId = ordersummary.customerId
+
+	CREATE TRIGGER deletecustomerorderprod
+	BEFORE DELETE ON ordersummary
+		REFERENCING
+			OLD ROW AS OldR
+		FOR EACH ROW
+		DELETE FROM orderproduct WHERE OldR.orderId = orderproduct.orderId
+

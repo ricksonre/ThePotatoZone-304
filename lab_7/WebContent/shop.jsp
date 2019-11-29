@@ -2,7 +2,7 @@
 <html>
 
 <%@ include file='header.jsp' %>
-</div>
+
 <head>
         <title>POT-8O Orbital Bombardment Groceries Main Page</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -12,7 +12,7 @@
    
 <h1 align="center">POT-8O Orbital Bombardment Groceries</h1>
 
-<img src="https://i.imgur.com/RotNh8n.png" alt="POT-8O OBG" width="60%" style='position: relative; left: 20%; right: 20%'>
+<img src="https://i.imgur.com/RotNh8n.png" alt="POT-8O OBG" width="40%" style='position: relative; left: 30%; right: 30%'>
 
 		<div id='button'>
         	<table>
