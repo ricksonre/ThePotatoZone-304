@@ -2,7 +2,7 @@
 <html>
 
 <%@ include file='header.jsp' %>
-</div>
+
 <head>
         <title>POT-8O Orbital Bombardment Groceries Main Page</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
