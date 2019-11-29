@@ -165,15 +165,15 @@ INSERT INTO category(categoryName) VALUES ('Sweet');
 
 INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','Potato in box', 1, 'A potato in a box',18.00);
 INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','Box of potatoses', 2, 'A box with potatoes',33000.99);
-INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','Batata', 3, 'A quality potato',33000.99);
-INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','Batat', 1, 'Have u ever seen a batat I haven't',33000.99);
-INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','Potanto', 3, 'is so potent u never need viagra anymore',33000.99);
-INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','potatoess', 1, 'Look at your toes are they potatoes yet?',33000.99);
-INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','wild potato', 5, 'You are walking in the woods, what is that? A wild potato',33000.99);
-INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','A rusty potato', 1, 'Eat with caution, may cause tetanus',33000.99);
-INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','Dry Potato', 8, 'Its like ur sense of humor',33000.99);
-INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','Potato Trap', 1, 'It is for potatoes, not bears',33000.99);
-INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','Trap Potato', 6, 'Past all foul your toes',33000.99);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','Batata', 3, 'A quality potato',999999999);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','Batat', 1, 'Have u ever seen a batat I haven't',1549.99);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','Potanto', 3, 'is so potent u never need viagra anymore',12.99);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','potatoess', 1, 'Look at your toes are they potatoes yet?',6969.99);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','wild potato', 5, 'You are walking in the woods, what is that? A wild potato',1234.99);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','A rusty potato', 1, 'Eat with caution, may cause tetanus',7859.99);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','Dry Potato', 8, 'Its like ur sense of humor',6235.99);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','Potato Trap', 1, 'It is for potatoes, not bears',0.99);
+INSERT product( productImageURL, productName, categoryId, productDesc, productPrice) VALUES ( 'img/ptt.jpg','Trap Potato', 6, 'Past all foul your toes',9994698.99);
 
 
 
