@@ -15,16 +15,11 @@
 
 <%
 out.println("<h2>Administrator Sales Report by Day</h2>");
-
 // TODO: Write SQL query that prints out total order amount by day
-
 getConnection();
-
 String query = "SELECT orderDate,totalAmount FROM ordersummary ORDER BY orderDate;";	
 System.out.print("pass");	
 PreparedStatement stat = con.prepareStatement(query);
-
-
 ResultSet set = stat.executeQuery();
 	String[] dateboy = new String[100000];
 	Double[] datesum = new Double[100000];
@@ -62,7 +57,6 @@ while(set.next()){
 String custQuery = "SELECT customerId, firstName, lastName FROM customer";
 PreparedStatement custStat = con.prepareStatement(custQuery);
 ResultSet custSet = custStat.executeQuery();
-
 out.println("<h2>Customer List</h2>");
 out.print("<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)'>");
 out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th width=10% >ID</th><th width=90% >Full Name</th></tr>");
@@ -76,7 +70,6 @@ out.print("</table>");
 String saleQuery = "SELECT orderId, totalAmount FROM ordersummary";
 PreparedStatement saleStat = con.prepareStatement(saleQuery);
 ResultSet saleSet = saleStat.executeQuery();
-
 out.println("<h2>Total Orders</h2>");
 out.print("<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)'>");
 out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th width=10% >Order ID</th><th width=90% >Total Amount</th></tr>");
@@ -92,7 +85,6 @@ saleSet.next();
 out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th style='text-align: center; border: 2px solid rgb(184, 184, 184)'>Total Sales</th>");
 out.println("<td style='text-align: center; border: 2px solid rgb(184, 184, 184)'>"+saleSet.getString(1)+"</td></tr>");
 out.print("</table>");
-
 //Close connection
 		System.out.println("Closing database connection.");
 		try
@@ -206,4 +198,3 @@ out.print("</table>");
 
 </body>
 </html>
-
