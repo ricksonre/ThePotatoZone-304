@@ -30,6 +30,7 @@ String categoryId = request.getParameter("categoryId");
 			   PreparedStatement confps = con.prepareStatement(conf);
 			   ResultSet confSet = confps.executeQuery();
 			   confSet.next();
+			   //Keeps previous values of empty fields
 			   if(productName == "")
 				   productName = confSet.getString(1);
 			   if(productPrice == "")
