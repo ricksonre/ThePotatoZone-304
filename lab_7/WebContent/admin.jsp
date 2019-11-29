@@ -116,7 +116,7 @@ out.print("</table>");
 </tr>
 <tr>
 	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Product Price:</font></div></td>
-	<td><input type="number" name="productPrice" size=10 maxlength="10" step=".01" ></td>
+	<td><input type="number" name="productPrice" size=40 maxlength="10" step=".01" ></td>
 </tr>
 <tr>
 	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Product Image URL:</font></div></td>
@@ -132,7 +132,7 @@ out.print("</table>");
 </tr>
 <tr>
 	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Category ID:</font></div></td>
-	<td><input type="number" name="categoryId" size=10 maxlength="10"></td>
+	<td><input type="number" name="categoryId" size=40 maxlength="10"></td>
 </tr>
 </table>
 <br/>
@@ -154,7 +154,7 @@ out.print("</table>");
 </tr>
 <tr>
 	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Product Price:</font></div></td>
-	<td><input type="number" name="productPrice" size=10 maxlength="10" step=".01" ></td>
+	<td><input type="number" name="productPrice" size=40 maxlength="10" step=".01" ></td>
 </tr>
 <tr>
 	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Product Image URL:</font></div></td>
@@ -170,7 +170,7 @@ out.print("</table>");
 </tr>
 <tr>
 	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Category ID:</font></div></td>
-	<td><input type="number" name="categoryId" size=10 maxlength="10"></td>
+	<td><input type="number" name="categoryId" size=40 maxlength="10"></td>
 </tr>
 </table>
 <br/>
@@ -197,7 +197,7 @@ out.print("</table>");
 <table style="display:inline">
 <tr>
 	<td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Input "RESTORE" to restore the database:</font></div></td>
-	<td><input type="text" name="confirm" size=10 maxlength="40"></td>
+	<td><input type="text" name="confirm" size=40 maxlength="40"></td>
 </tr>
 </table>
 <br/>
