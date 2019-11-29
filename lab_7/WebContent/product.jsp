@@ -52,14 +52,23 @@
 				+ set.getString(3) + "\">Add to Cart</a></h3>");
 		out.print("<h3><a href=\"listprod.jsp?productName=\">Continue Shopping</a>");
 		session.setAttribute("currentProduct", productId);
-	%>
-	<%
+	
 		if (session.getAttribute("authenticatedUser") != null) {
 
 			out.println(
-					"<form name=\"form1\" method=post action=\"addreviews.jsp\"><br>Rate using Potatoes <INPUT TYPE=\"radio\" name=\"command\" value=\"1\"/> 1 Potato <INPUT TYPE=\"radio\" name=\"command\" value=\"2\"/> 2 Potato <INPUT TYPE=\"radio\" name=\"command\" value=\"3\"/> 3 Potato<br><textarea name = \"textarea1\" rows=\"6\" cols=\"80\" placeholder=\"Enter review here\"></textarea><br><INPUT TYPE=\"SUBMIT\" VALUE=\"Submit\"></form>");
+					"<form name=\"form1\" method=post action=\"addreviews.jsp\"><br>Rate using Potatoes <INPUT TYPE=\"radio\" name=\"command\" value=\"1\"/ checked> 1 Potato <INPUT TYPE=\"radio\" name=\"command\" value=\"2\"/> 2 Potato <INPUT TYPE=\"radio\" name=\"command\" value=\"3\"/> 3 Potato<br><textarea name = \"textarea1\" rows=\"6\" cols=\"80\" placeholder=\"Enter review here\"></textarea><br><INPUT TYPE=\"SUBMIT\" VALUE=\"Submit\"></form>");
 
 		}
+		
+		query = "SELECT * FROM review WHERE productId=?";
+		stat = con.prepareStatement(query);
+		stat.setString(1, productId);
+		set = stat.executeQuery();
+		while(set.next()){
+			
+			out.println("<br>User: "+set.getInt(4)+" has rated this product "+set.getInt(2)+" Potatoes! <br><textarea readonly> "+set.getString(6)+" </textarea>");
+		}
+		
 	%>
 
 </body>
