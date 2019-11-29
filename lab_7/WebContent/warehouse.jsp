@@ -45,6 +45,7 @@ while(set.next()) {
 	System.out.println();
 }
 */
+
 String display = "<table>";
 display += "<tr><th>Warehouse</th><th>Image</th><th>Product Name</th><th>Quantity</th></tr>";
 
