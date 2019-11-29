@@ -25,14 +25,13 @@ String categoryId = request.getParameter("categoryId");
 			String query = "INSERT INTO product (productName, productPrice, productImageURL, productDesc, categoryId) VALUES (\'" +productName +"\', \'" +productPrice +"\', \'" +productImageURL +"\', \'" +productDesc +"\', \'" +categoryId +"\');";
 			PreparedStatement pstmt = con.prepareStatement(query);
 			pstmt.execute();
-			
 			out.println("<h2>Product Added:</h2>");
 			out.print("<table style='width:100%; border-collapse:collapse; border: 2px solid rgb(184, 184, 184)'>");
 			out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th width=30% >Product Name</th><th width=70% >" +productName +"</th></tr>");
-			out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th width=30% >Product Name</th><th width=70% >" +productPrice +"</th></tr>");
-			out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th width=30% >Product Name</th><th width=70% >" +productImageURL +"</th></tr>");
-			out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th width=30% >Product Name</th><th width=70% >" +productDesc +"</th></tr>");
-			out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th width=30% >Product Name</th><th width=70% >" +categoryId +"</th></tr>");
+			out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th width=30% >Product Price</th><th width=70% >" +productPrice +"</th></tr>");
+			out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th width=30% >Product Image URL</th><th width=70% >" +productImageURL +"</th></tr>");
+			out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th width=30% >Product Description</th><th width=70% >" +productDesc +"</th></tr>");
+			out.print("<tr style='border: 2px solid rgb(184, 184, 184)'><th width=30% >Product Category</th><th width=70% >" +categoryId +"</th></tr>");
 		} 
 		catch (SQLException ex) {
 			out.println(ex);
