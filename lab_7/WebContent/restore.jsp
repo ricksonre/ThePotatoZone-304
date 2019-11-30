@@ -19,6 +19,7 @@ Connection con = DriverManager.getConnection(url, uid, pw);
 String fileName = "orderdb_sql.ddl";
 if(confirm.equals("RESTORE"))
   {
+	out.println("<h2>DATABASE RESTORED!</h2>");
 try
 {
     // Create statement
