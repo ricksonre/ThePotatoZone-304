@@ -16,7 +16,7 @@ String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_rreichma;";
 String uid = "rreichma";
 String pw = "69750420";
 Connection con = DriverManager.getConnection(url, uid, pw);
-String fileName = "data/orderdb_sql.ddl";
+String fileName = "orderdb_sql.ddl";
 if(confirm.equals("RESTORE"))
   {
 try
@@ -43,7 +43,17 @@ try
         }
     }	 
     scanner.close();
-    
+    out.println("<h2>DATABASE RESTORED!</h2>");
+	System.out.println("Closing database connection.");
+	try
+	{
+		if (con != null)
+            con.close();
+	}
+	catch (SQLException e)
+	{
+		System.out.println(e);
+	}
     System.out.println("Database loaded.");
 }
 catch (Exception e)

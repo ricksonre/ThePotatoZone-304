@@ -37,6 +37,11 @@ String productId = request.getParameter("productId");
 			  }
 		} 
 		catch (SQLException ex) {
+			out.println("");
+			out.println("");
+			out.println("");
+			out.println("");
+			out.println("");
 			out.println(ex);
 		}
 		finally
