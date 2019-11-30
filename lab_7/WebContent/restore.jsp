@@ -44,7 +44,6 @@ try
         }
     }	 
     scanner.close();
-    out.println("<h2>DATABASE RESTORED!</h2>");
 	System.out.println("Closing database connection.");
 	try
 	{
@@ -65,7 +64,7 @@ catch (Exception e)
 else
 	{
 	 out.println("<h2>DATABASE NOT RESTORED</h2>");
-	 out.println("<img src=\"https://i.imgur.com/fijYhTE.png\" alt=\"POT-8O OBG\" height=\"40%\" style='position: relative; left: 20%; right: 20%'>");
+	 out.println("<img src=\"https://i.imgur.com/fijYhTE.png\" alt=\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\" height=\"40%\" style='position: relative; left: 20%; right: 20%'>");
 	}
 	
 %>
