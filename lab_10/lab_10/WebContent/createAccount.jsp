@@ -47,10 +47,6 @@
             <input type="text" name="zip" required>
         </div>
         <div>
-            <label for="name">State: </label>
-            <input type="text" name="state" required>
-        </div>
-        <div>
             <label for="name">Country: </label>
             <input type="text" name="country" required>
         </div>
