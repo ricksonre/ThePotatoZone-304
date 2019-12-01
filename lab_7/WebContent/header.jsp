@@ -13,7 +13,7 @@
 	{
 		out.print("<a href=\"customer.jsp\">Customer Info</a>");
 		out.print("<a href=\"admin.jsp\">Admin</a>");
-		out.print("<p >You are loged as " + session.getAttribute("authenticatedUser") + "</p> ");
+		out.print("<p >You are logged on as: " + session.getAttribute("authenticatedUser") + "</p> ");
 		out.print("<a style='text-align: right;' href=\"logout.jsp\">Logout</a>");
 	}
 	else
