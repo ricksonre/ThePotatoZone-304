@@ -58,12 +58,12 @@ well-formed.
 
 There is not root 				  	-- not well-formed
 price quantity in the wrong order 	-- not valid
-closing braket missing
+closing braket missing				-- not valid
 anchor tag as a number				-- not valid
 number order is not defined			-- not valid
-product without productId			-- not valid
-category missing
-closing parentheses missing
+product without productId			-- not well-formed
+category missing					-- not well-formed
+closing parentheses missing			-- not valid
 
 Question 2 (2 marks) Write a XPath query that returns all products 
 whose price is $10.
