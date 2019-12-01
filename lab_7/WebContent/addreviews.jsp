@@ -19,17 +19,18 @@
 
 		rst.next();
 
-		String sqlExists = "SELECT * FROM review WHERE customerId =" + rst.getInt(1);
+		String sqlExists = "SELECT * FROM review WHERE customerId =" + rst.getInt(1)+"AND productId="+session.getAttribute("currentProduct").toString()+";";
 		pstmt = con.prepareStatement(sqlExists);
 		ResultSet rst2 = pstmt.executeQuery();
 		if (rst2.next()) {
 
-			sql = "UPDATE review SET reviewRating = ?,reviewComment=? WHERE customerId=?";
+			sql = "UPDATE review SET reviewRating = ?,reviewComment=? WHERE customerId=? AND productId=?";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, Integer.parseInt(rating));
 			pstmt.setString(2, text.toString());
 			pstmt.setInt(3, rst.getInt(1));
+			pstmt.setString(4, session.getAttribute("currentProduct").toString());
 
 			pstmt.executeUpdate();
 
