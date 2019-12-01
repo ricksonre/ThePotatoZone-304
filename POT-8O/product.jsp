@@ -1,7 +1,7 @@
-<%@ page import="java.util.HashMap" %>
-<%@ page import="java.text.NumberFormat" %>
+<%@ page import="java.util.HashMap"%>
+<%@ page import="java.text.NumberFormat"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
-<%@ include file="jdbc.jsp" %>
+<%@ include file="jdbc.jsp"%>
 
 <html>
 <head>
@@ -10,9 +10,9 @@
 </head>
 <body>
 
-<%@ include file="header.jsp" %>
+	<%@ include file="header.jsp"%>
 
-<%
+	<%
 
 //gets the product id from the get request
 String productId = request.getParameter("id");
@@ -58,6 +58,19 @@ out.print("</td>"
 out.print("<h3><a href=\"addcart.jsp?id="+set.getString(1)+"&name="+set.getString(2)+"&price="+set.getString(3)+"\">Add to Cart</a></h3>");
 //button to resturn to the list of products
 out.print("<h3><a href=\"listprod.jsp?productName=\">Continue Shopping</a>");
+if (session.getAttribute("authenticatedUser") != null) {
+	out.println(
+			"<form name=\"form1\" method=post action=\"addreviews.jsp\"><br>Rate using Potatoes <INPUT TYPE=\"radio\" name=\"command\" value=\"1\"/ checked> 1 Potato <INPUT TYPE=\"radio\" name=\"command\" value=\"2\"/> 2 Potato <INPUT TYPE=\"radio\" name=\"command\" value=\"3\"/> 3 Potato<br><textarea name = \"textarea1\" rows=\"6\" cols=\"80\" placeholder=\"Enter review here\"></textarea><br><INPUT TYPE=\"SUBMIT\" VALUE=\"Submit\"></form>");
+
+query = "SELECT * FROM review WHERE productId=?";	
+stat = con.prepareStatement(query);	
+stat.setString(1, productId);	
+set = stat.executeQuery();	
+while(set.next()){	
+		
+	out.println("<br>User: "+set.getInt(4)+" has rated this product "+set.getInt(2)+" Potatoes! <br><textarea readonly> "+set.getString(6)+" </textarea>");	
+}
+}
 
 %>
 

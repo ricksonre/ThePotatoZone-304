@@ -6,6 +6,7 @@
         <a href="listprod.jsp?productName=">Products</a>
         <a href="showcart.jsp">Shopping Cart</a>
         <a href="listorder.jsp">Orders</a>
+        <a href="test.jsp">Find my potato</a>
 <%
 	//if the user is logged display relevant information on header (customer information, admin page, loged username, logout)
 	//	if not display button to log into
