@@ -3,6 +3,7 @@
 <%@ page language="java" import="java.io.*,java.sql.*,java.util.*"%>
 <%@ include file="jdbc.jsp" %>
 <%@ include file='header.jsp' %>
+<%@ include file="orderdb_sql.ddl" %>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>RESTORE!</title>
@@ -16,7 +17,7 @@ String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_rreichma;";
 String uid = "rreichma";
 String pw = "69750420";
 Connection con = DriverManager.getConnection(url, uid, pw);
-String fileName = "/data/orderdb_sql.ddl";
+String fileName = "orderdb_sql.ddl";
 if(confirm.equals("RESTORE"))
   {
 	out.println("<h2>DATABASE RESTORED!</h2>");
