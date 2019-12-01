@@ -19,6 +19,7 @@
 	}
 	else
 		out.print("<a href=\"login.jsp\">Login</a>");
+		out.print("<a href=\"createAccount.jsp\">Register</a>");
 
 %>
 </div>
