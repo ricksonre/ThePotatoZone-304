@@ -101,6 +101,8 @@ out.print("</table>");
 <button type="button" onclick = "location.href = 'manageproduct.jsp'">Manage Products</button>
 <h2>Manage Customers</h2>
 <button type="button" onclick = "location.href = 'managecustomer.jsp'">Manage Customers</button>
+<h2>Manage Warehouse</h2>
+<button type="button" onclick = "location.href = 'warehouse.jsp'">To the Warehouse!</button>
 
 <!-- ==================Restore Database================== -->
 <h2>Restore Database</h2>
