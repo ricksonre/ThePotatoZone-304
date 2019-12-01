@@ -13,6 +13,13 @@
 <%@ page import="java.text.SimpleDateFormat"%>
 <%@ page import="java.util.Date"%>
 
+<%@ page import="java.io.File"%>
+<%@ page import="java.sql.Connection"%>
+<%@ page import="java.sql.DriverManager"%>
+<%@ page import="java.sql.Statement"%>
+<%@ page import="java.util.Scanner"%>
+
+
 <%
 // page header
 out.println("<h2>Administrator Sales Report by Day</h2>");
