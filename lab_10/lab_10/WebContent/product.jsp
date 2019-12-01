@@ -20,6 +20,7 @@
 		} else {
 			productId = request.getParameter("id");
 		}
+		session.setAttribute("currentProduct", productId);
 		//connects to the db
 		getConnection();
 
